@@ -18,7 +18,7 @@ export const Navbar: React.FC = () => {
     { name: 'The Ritual', href: '#ritual' },
     { name: 'Services', href: '#services' },
     { name: 'About', href: '#about' },
-    { name: 'Pricing', href: '#pricing' },
+    // { name: 'Pricing', href: '#pricing' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -30,16 +30,18 @@ export const Navbar: React.FC = () => {
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         {/* Logo / Brand Name */}
-        <a href="#" className="flex items-center gap-2 group">
-            <Sparkles className={`h-6 w-6 transition-colors ${isScrolled || isMobileMenuOpen ? 'text-sage-500' : 'text-white'}`} />
-            <span className={`text-xl tracking-widest font-serif font-semibold uppercase transition-colors ${
-              isScrolled || isMobileMenuOpen ? 'text-stone-800' : 'text-white'
-            }`}>
-              Sacred Touch
-            </span>
+        <a href="#" className="flex items-center gap-4 group">
+          <img
+            src="Images/logo_Sage.svg"
+            alt="Serene massage setting with plants"
+            className={`h-6 w-6 object-cover transition-colors ${isScrolled || isMobileMenuOpen ? 'filter brightness-100' : 'filter brightness-0 invert'}`}
+          />
+          <span className={`text-xl tracking-widest font-serif font-semibold uppercase transition-colors ${
+            isScrolled || isMobileMenuOpen ? 'text-stone-800' : 'text-white'
+          }`}>
+            Attuned Being
+          </span>
         </a>
-
-        {/* Desktop Nav */}
         <div className="hidden md:flex space-x-8">
           {navLinks.map((link) => (
             <a

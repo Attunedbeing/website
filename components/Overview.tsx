@@ -1,14 +1,14 @@
 import React from 'react';
-import { Heart, Sun, Wind, Anchor, Eye, ShieldCheck, Sparkles } from 'lucide-react';
+import { Heart, Sun, Wind, Anchor, Eye, ShieldCheck, Sparkles, PersonStanding, HeartHandshake } from 'lucide-react';
 
 export const Overview: React.FC = () => {
   const benefits = [
-    { icon: <Anchor className="w-5 h-5" />, title: "Reconnect with Yourself", desc: "Explore a deeper connection to your body, senses, and innate sensuality." },
+    { icon: <PersonStanding className="w-5 h-5" />, title: "Reconnect with Yourself", desc: "Explore a deeper connection to your body, senses, and innate sensuality." },
     { icon: <Sun className="w-5 h-5" />, title: "Non-Goal-Oriented Pleasure", desc: "Discover pleasure without pressure, allowing for presence, connection, and bliss." },
     { icon: <Heart className="w-5 h-5" />, title: "Deepen Capacity to Feel", desc: "Gently broaden your ability to experience a wider range of emotions and sensations." },
     { icon: <Eye className="w-5 h-5" />, title: "Cultivate Self-Attunement", desc: "Develop a stronger awareness and understanding of your own needs and desires." },
     { icon: <ShieldCheck className="w-5 h-5" />, title: "Agency & Boundaries", desc: "Learn skills to identify and express your desires and limits clearly." },
-    { icon: <Wind className="w-5 h-5" />, title: "Release Shame", desc: "Dissolve societal conditioning and past experiences creating shame around pleasure." },
+    { icon: <HeartHandshake className="w-5 h-5" />, title: "Release Shame", desc: "Dissolve societal conditioning and past experiences creating shame around pleasure." },
     { icon: <Sparkles className="w-5 h-5" />, title: "Trauma-Aware Healing", desc: "Receive support in a safe environment that respects your unique journey." },
   ];
 

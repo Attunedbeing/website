@@ -42,7 +42,7 @@ export const Pricing: React.FC = () => {
               className={`relative p-8 flex flex-col justify-between border ${
                 pkg.featured 
                   ? 'border-sage-500 bg-stone-800 scale-105 z-10 shadow-2xl shadow-sage-900/20' 
-                  : 'border-stone-700 bg-stone-900/50 hover:border-sage-600 transition-colors'
+                  : 'border-stone-700 bg-stone-900/50'
               }`}
             >
               {pkg.featured && (

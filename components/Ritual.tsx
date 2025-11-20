@@ -3,17 +3,17 @@ import React from 'react';
 export const Ritual: React.FC = () => {
   const steps = [
     {
-      number: "01",
+      number: "1",
       title: "Discussion & Agreement",
       desc: "We’ll begin with a conversation about your desires, what feels safe for you, and what I can provide."
     },
     {
-      number: "02",
+      number: "2",
       title: "Full Body Oil Massage",
       desc: "You’ll receive a full body oil massage with check-ins throughout, especially at significant points such as sensitive areas and genitals."
     },
     {
-      number: "03",
+      number: "3",
       title: "Closing & Aftercare",
       desc: "To help you integrate your experience and ground yourself before leaving the space."
     }
@@ -33,8 +33,8 @@ export const Ritual: React.FC = () => {
 
         <div className="grid md:grid-cols-3 gap-8">
           {steps.map((step, idx) => (
-            <div key={idx} className="relative p-8 border border-stone-800 hover:border-sage-700 transition-colors duration-300 bg-stone-950/50">
-              <span className="absolute -top-6 left-1/2 transform -translate-x-1/2 text-5xl font-serif text-stone-800 font-bold z-0 opacity-50 md:opacity-100 select-none">
+            <div key={idx} className="relative p-8 border border-stone-800 bg-stone-950/50">
+              <span className="absolute -top-1 left-1/2 transform -translate-y-1/2 -translate-x-1/2 text-5xl font-serif text-sage-200 font-regular z-0 opacity-50 md:opacity-100 select-none">
                 {step.number}
               </span>
               <div className="relative z-10 mt-4 text-center">

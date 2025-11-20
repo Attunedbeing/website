@@ -1,6 +1,6 @@
-# Sacred Touch Website
+# Attuned Being Website
 
-Welcome to the codebase for the **Sacred Touch** website. 
+Welcome to the codebase for the **Attuned Being** website. 
 This guide explains how to get this website running on your own computer in simple steps.
 
 ## 🚀 Quick Start (Explain Like I'm 5)

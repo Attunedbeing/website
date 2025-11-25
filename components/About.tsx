@@ -24,7 +24,7 @@ export const About: React.FC = () => {
               {/* Image Frame */}
               <div className="absolute inset-0 border-2 border-sage-500 transform translate-x-4 translate-y-4"></div>
               <img 
-                src= "Images/Anonomous.webp"
+                src= "Images/Anonymous.webp"
                 alt="Practitioner Portrait" 
                 className="relative z-10 w-full h-[700px] object-cover"
               />

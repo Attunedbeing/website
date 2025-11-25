@@ -10,29 +10,29 @@ export const Contact: React.FC = () => {
     e.preventDefault();
     setStatus('submitting');
 
-    var base = new Airtable({apiKey: 'patnrMwxc5FYwR2to.35d49f87eb5258e3d0331a55472de8292344579bc3bbd41f34c5d4615c8a17c6'}).base('appejvcJAdzQcbKAV');
+    var base = new Airtable({apiKey: 'patDZntiPxTURbGRB.a20381bd6390e4815fbd22e39bf5489212a32728fe20ef6316f8d7167b0668f3'}).base('appR5ETzMTA0JNTPH');
     
-    base('Orders').create([
+    const name = (e.target as HTMLFormElement).FullName.value;
+    const email = (e.target as HTMLFormElement).email.value;
+    const message = (e.target as HTMLFormElement).message.value;
+    const interest = (e.target as HTMLFormElement).interest.value;
+
+    base('tbl49mJe979penoD4').create([
       {
-        "fields": {
-          "Customer": [
-            "recylHLKDexSG3RQZ"
-          ],
-          "Status": "Ordered",
-          "Date Required": "2025-11-12",
-          "Delivered": "2025-11-16",
-          "Amount": 5,
-          "Revenue": 60,
-          "Payment": true
-        }
+      "fields": {
+        "fld6ZMtE8JeGcdOCw": name,       // Name
+        "fldC1UaUd18McnRwY": message,    // Message
+        "fldsTnEdh9ceNSA1n": email,      // Email
+        "fldgbsDtXHfSr7ria": interest,   // Service
+      }
       }
     ], function(err, records) {
       if (err) {
-        console.error(err);
-        return;
+      console.error(err);
+      return;
       }
       records.forEach(function (record) {
-        console.log(record.getId());
+      console.log(record.getId());
       });
     });
     setTimeout(() => {
@@ -69,8 +69,7 @@ export const Contact: React.FC = () => {
                   <label htmlFor="name" className="text-xs uppercase tracking-widest text-stone-500 font-bold">Name</label>
                   <input 
                     type="text" 
-                    id="name" 
-                    required
+                    id="FullName" 
                     className="w-full bg-stone-50 border-b-2 border-stone-200 p-3 focus:outline-none focus:border-sage-500 transition-colors text-stone-800"
                     placeholder="Your full name"
                   />

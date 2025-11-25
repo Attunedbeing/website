@@ -8,13 +8,13 @@ export const Hero: React.FC = () => {
       <div className="absolute inset-0 z-0">
         <img
           src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?q=80&w=2070&auto=format&fit=crop"
-          alt="Serene massage setting with plants"
+          alt="Serene massage setting with flowers"
           className="w-full h-full object-cover"
         />
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-stone-900/40 mix-blend-multiply"></div>
+        <div className="absolute inset-0 bg-stone-900/70 mix-blend-multiply"></div>
         {/* Sage tint */}
-        <div className="absolute inset-0 bg-sage-900/20"></div>
+        <div className="absolute inset-0 bg-sage-900/25"></div>
       </div>
 
       {/* Content */}

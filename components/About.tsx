@@ -24,9 +24,9 @@ export const About: React.FC = () => {
               {/* Image Frame */}
               <div className="absolute inset-0 border-2 border-sage-500 transform translate-x-4 translate-y-4"></div>
               <img 
-                src="https://images.unsplash.com/photo-1612469168511-775f4646309a?q=80&w=1000&auto=format&fit=crop" 
+                src= "public\Images\Anonomous.webp"
                 alt="Practitioner Portrait" 
-                className="relative z-10 w-full h-[500px] object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                className="relative z-10 w-full h-[700px] object-cover"
               />
             </div>
           </div>

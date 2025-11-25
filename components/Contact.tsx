@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Send } from 'lucide-react';
+import 'airtable';
+import Airtable from 'airtable';
 
 export const Contact: React.FC = () => {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
@@ -7,7 +9,32 @@ export const Contact: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('submitting');
-    // Simulate Airtable submission
+
+    var base = new Airtable({apiKey: 'patnrMwxc5FYwR2to.35d49f87eb5258e3d0331a55472de8292344579bc3bbd41f34c5d4615c8a17c6'}).base('appejvcJAdzQcbKAV');
+    
+    base('Orders').create([
+      {
+        "fields": {
+          "Customer": [
+            "recylHLKDexSG3RQZ"
+          ],
+          "Status": "Ordered",
+          "Date Required": "2025-11-12",
+          "Delivered": "2025-11-16",
+          "Amount": 5,
+          "Revenue": 60,
+          "Payment": true
+        }
+      }
+    ], function(err, records) {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      records.forEach(function (record) {
+        console.log(record.getId());
+      });
+    });
     setTimeout(() => {
       setStatus('success');
     }, 1500);

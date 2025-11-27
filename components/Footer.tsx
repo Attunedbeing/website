@@ -11,7 +11,7 @@ export const Footer: React.FC = () => {
           <a href="#contact" className="hover:text-white transition-colors">Contact</a>
         </div> */}
         <p className="text-xs text-stone-600">
-          © {new Date().getFullYear()} Attuned Being. All rights reserved.
+          © {new Date().getFullYear()} Attuned Being. All rights reserved. Created by smooth-landings.com.
           <br />
           Designed with intention.
         </p>

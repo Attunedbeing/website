@@ -16,7 +16,7 @@ export const Services: React.FC = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-white">
+    <section id="services" className="py-20 bg-stone-25">
       <div className="container mx-auto px-6 max-w-5xl">
 
         <div className="grid md:grid-cols-2 gap-12 mb-20">
@@ -37,7 +37,7 @@ export const Services: React.FC = () => {
           </div>
 
           {/* Not Offered */}
-          <div className="bg-stone-50 p-8 border-l-4 border-stone-300">
+          <div className="bg-stone-200 p-8 border-l-4 border-sage-300">
             <h3 className="text-2xl font-serif text-stone-800 mb-6 flex items-center gap-3 opacity-75">
               I am not available for
             </h3>
@@ -53,7 +53,7 @@ export const Services: React.FC = () => {
         </div>
 
         {/* Safety Section */}
-        <div className="bg-sage-50 rounded-sm p-8 md:p-12 border border-sage-100 text-center">
+        <div className="bg-stone-200 rounded-sm p-8 md:p-12 border border-sage-300 text-center">
           <div className="flex justify-center mb-6">
             <div className="p-3 bg-white rounded-full text-sage-600">
               <Shield className="w-8 h-8" />

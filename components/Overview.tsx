@@ -13,7 +13,7 @@ export const Overview: React.FC = () => {
   ];
 
   return (
-    <section id="overview" className="py-20 md:py-28 bg-stone-50">
+    <section id="overview" className="py-20 md:py-28 bg-stone-25">
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="grid md:grid-cols-2 gap-16 items-start">
           {/* Left: Text Content */}
@@ -34,7 +34,7 @@ export const Overview: React.FC = () => {
           </div>
 
           {/* Right: Benefits Grid */}
-          <div className="bg-white p-8 shadow-sm border border-stone-100 rounded-sm">
+          <div className="bg-white p-8 shadow-sm border border-sage-300 rounded-sm">
             <h4 className="text-l uppercase tracking-widest text-sage-600 mb-8 text-center font-medium">In this experience, you are invited to</h4>
             <ul className="space-y-6">
               {benefits.map((item, idx) => (

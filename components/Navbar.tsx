@@ -24,21 +24,19 @@ export const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
-        isScrolled || isMobileMenuOpen ? 'bg-stone-50/95 backdrop-blur-sm shadow-sm py-4' : 'bg-transparent py-6'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${isScrolled || isMobileMenuOpen ? 'bg-stone-100/95 backdrop-blur-sm shadow-sm py-4' : 'bg-transparent py-6'
+        }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         {/* Logo / Brand Name */}
         <a href="#" className="flex items-center gap-4 group">
           <img
-            src="Images/logo_Sage.svg"
+            src="Images/logo.svg"
             alt="Serene massage setting with plants"
             className={`h-6 w-6 object-cover transition-colors ${isScrolled || isMobileMenuOpen ? 'filter brightness-100' : 'filter brightness-0 invert'}`}
           />
-          <span className={`text-xl tracking-widest font-serif font-semibold uppercase transition-colors ${
-            isScrolled || isMobileMenuOpen ? 'text-stone-800' : 'text-white'
-          }`}>
+          <span className={`text-xl tracking-widest font-serif font-semibold uppercase transition-colors ${isScrolled || isMobileMenuOpen ? 'text-stone-800' : 'text-white'
+            }`}>
             Attuned Being
           </span>
         </a>
@@ -47,9 +45,8 @@ export const Navbar: React.FC = () => {
             <a
               key={link.name}
               href={link.href}
-              className={`text-sm uppercase tracking-wider font-medium hover:text-sage-500 transition-colors ${
-                isScrolled ? 'text-stone-600' : 'text-stone-200'
-              }`}
+              className={`text-sm uppercase tracking-wider font-medium hover:text-sage-500 transition-colors ${isScrolled ? 'text-stone-600' : 'text-stone-200'
+                }`}
             >
               {link.name}
             </a>

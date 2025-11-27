@@ -19,7 +19,7 @@ export const Hero: React.FC = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        <span className="block text-sage-100 tracking-[0.3em] text-sm md:text-base uppercase mb-4 font-medium">
+        <span className="block text-stone-200 tracking-[0.3em] text-sm md:text-base uppercase mb-4 font-medium">
           Embodiment & Healing
         </span>
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif text-white mb-8 leading-tight">

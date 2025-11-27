@@ -11,9 +11,9 @@ export const Footer: React.FC = () => {
           <a href="#contact" className="hover:text-white transition-colors">Contact</a>
         </div> */}
         <p className="text-xs text-stone-600">
-          © {new Date().getFullYear()} Attuned Being. All rights reserved. Created by smooth-landings.com.
+          © {new Date().getFullYear()} Attuned Being. All rights reserved.
           <br />
-          Designed with intention.
+          Made locally by <a href="https://smooth-landings.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Smooth Landings</a>
         </p>
       </div>
     </footer>

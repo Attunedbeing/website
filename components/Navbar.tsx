@@ -33,9 +33,9 @@ export const Navbar: React.FC = () => {
           <img
             src="Images/logo.svg"
             alt="Serene massage setting with plants"
-            className={`h-6 w-6 object-cover transition-colors ${isScrolled || isMobileMenuOpen ? 'filter brightness-100' : 'filter brightness-0 invert'}`}
+            className={`h-5 w-5 object-cover transition-colors ${isScrolled || isMobileMenuOpen ? 'filter brightness-100' : 'filter brightness-0 invert'}`}
           />
-          <span className={`text-xl tracking-widest font-serif font-semibold uppercase transition-colors ${isScrolled || isMobileMenuOpen ? 'text-stone-800' : 'text-white'
+          <span className={`text-xl tracking-widest font-serif font-regular transition-colors ${isScrolled || isMobileMenuOpen ? 'text-stone-800' : 'text-white'
             }`}>
             Attuned Being
           </span>

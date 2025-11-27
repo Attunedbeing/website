@@ -3,28 +3,28 @@ import { CheckCircle2, XCircle, Shield } from 'lucide-react';
 
 export const Services: React.FC = () => {
   const offered = [
-    "Full body and genital massage (including prostate if desired)",
+    "Full body and genital massage",
+    "Prostate massage (if desired)",
     "Energetic connection",
-    "Cuddles",
-    "Body slides"
+    "Cuddles"
   ];
 
   const notOffered = [
-    "French kissing",
-    "Penetrative sex",
-    "Oral sex"
+    "Reciprocal touch",
+    "Kissing",
+    "Penetration, oral sex, or sex of any kind"
   ];
 
   return (
     <section id="services" className="py-20 bg-white">
       <div className="container mx-auto px-6 max-w-5xl">
-        
+
         <div className="grid md:grid-cols-2 gap-12 mb-20">
           {/* Offered */}
           <div>
             <h3 className="text-2xl font-serif text-stone-800 mb-6 flex items-center gap-3">
               <span className="w-8 h-0.5 bg-sage-500"></span>
-              Services Offered
+              I am available for
             </h3>
             <ul className="space-y-4">
               {offered.map((item, idx) => (
@@ -39,7 +39,7 @@ export const Services: React.FC = () => {
           {/* Not Offered */}
           <div className="bg-stone-50 p-8 border-l-4 border-stone-300">
             <h3 className="text-2xl font-serif text-stone-800 mb-6 flex items-center gap-3 opacity-75">
-              Services Not Offered
+              I am not available for
             </h3>
             <ul className="space-y-4">
               {notOffered.map((item, idx) => (

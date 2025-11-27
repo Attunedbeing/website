@@ -5,7 +5,7 @@ export const Ritual: React.FC = () => {
     {
       number: "1",
       title: "Discussion & Agreement",
-      desc: "We’ll begin with a conversation about your desires, what feels safe for you, and what I can provide."
+      desc: "We'll begin with a conversation about your desires, what feels safe for you, and what I can provide. This helps us create a mutual agreement for our session."
     },
     {
       number: "2",
@@ -15,15 +15,15 @@ export const Ritual: React.FC = () => {
     {
       number: "3",
       title: "Closing & Aftercare",
-      desc: "To help you integrate your experience and ground yourself before leaving the space."
+      desc: "Closing and Aftercare to help you integrate your experience."
     }
   ];
 
   return (
     <section id="ritual" className="py-20 bg-stone-900 text-stone-50 relative overflow-hidden">
-       {/* Abstract Background element */}
-       <div className="absolute top-0 left-0 w-64 h-64 bg-sage-900 rounded-full filter blur-3xl opacity-20 -translate-x-1/2 -translate-y-1/2"></div>
-       <div className="absolute bottom-0 right-0 w-96 h-96 bg-sage-800 rounded-full filter blur-3xl opacity-10 translate-x-1/2 translate-y-1/2"></div>
+      {/* Abstract Background element */}
+      <div className="absolute top-0 left-0 w-64 h-64 bg-sage-900 rounded-full filter blur-3xl opacity-20 -translate-x-1/2 -translate-y-1/2"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-sage-800 rounded-full filter blur-3xl opacity-10 translate-x-1/2 translate-y-1/2"></div>
 
       <div className="container mx-auto px-6 max-w-5xl relative z-10">
         <div className="text-center mb-16">

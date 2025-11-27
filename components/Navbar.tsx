@@ -24,7 +24,7 @@ export const Navbar: React.FC = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${isScrolled || isMobileMenuOpen ? 'bg-stone-100/95 backdrop-blur-sm shadow-sm py-4' : 'bg-transparent py-6'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${isScrolled || isMobileMenuOpen ? 'bg-stone-200/95 backdrop-blur-sm shadow-sm py-4' : 'bg-transparent py-6'
         }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
@@ -33,9 +33,9 @@ export const Navbar: React.FC = () => {
           <img
             src="Images/logo.svg"
             alt="Serene massage setting with plants"
-            className={`h-5 w-5 object-cover transition-colors ${isScrolled || isMobileMenuOpen ? 'filter brightness-100' : 'filter brightness-0 invert'}`}
+            className={`h-10 w-10 object-cover transition-colors ${isScrolled || isMobileMenuOpen ? 'filter brightness-100' : 'filter brightness-0 invert'}`}
           />
-          <span className={`text-xl tracking-widest font-serif font-regular transition-colors ${isScrolled || isMobileMenuOpen ? 'text-stone-800' : 'text-white'
+          <span className={`text-xl tracking-widest font-serif font-regular transition-colors ${isScrolled || isMobileMenuOpen ? 'text-black' : 'text-white'
             }`}>
             Attuned Being
           </span>

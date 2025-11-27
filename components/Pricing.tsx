@@ -3,26 +3,28 @@ import React from 'react';
 export const Pricing: React.FC = () => {
   const packages = [
     {
-      name: "Introductory",
+      name: "Taster",
       duration: "60 Mins",
       price: "$250",
+      featured: false,
       desc: "A focused session to release tension and find a moment of calm.",
-      features: ["Consultation (10m)", "Massage Ritual (40m)", "Integration (10m)"]
+      features: ["Consultation", "Sensual Massage (Non-genital)", "Integration"]
     },
     {
       name: "Deep Immersion",
       duration: "90 Mins",
       price: "$375",
-      featured: true,
+      featured: false,
       desc: "Perfect for first-time visitors. Includes consultation, full body massage, and integration.",
-      features: ["Consultation (15m)", "Massage Ritual (60m)", "Integration (15m)"]
+      features: ["Consultation", "Full Body Massage", "Integration"]
     },
     {
-      name: "Deep Immersion",
+      name: "Sacred Expand",
       duration: "2 Hours",
       price: "$500",
+      featured: false,
       desc: "A deeper journey allowing for more extensive bodywork and slower rhythmic touch.",
-      features: ["Consultation (15m)", "Extended Ritual (90m)", "Integration (15m)", "Full Body Slides"]
+      features: ["Consultation", "Extended Full Body Massage", "Integration", "Full Body Slides"]
     }
   ];
 
@@ -68,26 +70,39 @@ export const Pricing: React.FC = () => {
                   ))}
                 </ul>
               </div>
+              <div className="mt-8">
+                {pkg.name === "Taster" ? (
+                  <a
+                    className={`block w-full text-center py-3 uppercase tracking-widest text-xs transition-colors ${pkg.featured
+                      ? 'bg-stone-700 text-stone-400 cursor-not-allowed'
+                      : 'border border-stone-700 text-stone-500 cursor-not-allowed'
+                      }`}
+                  >
+                    Not available
+                  </a>
+                ) : (
+                  <a
+                    href="#contact"
+                    className={`block w-full text-center py-3 uppercase tracking-widest text-xs transition-colors ${pkg.featured
+                      ? 'bg-sage-500 text-white hover:bg-sage-400'
+                      : 'border border-stone-600 text-stone-300 hover:border-sage-500 hover:text-white'
+                      }`}
+                  >
+                    Book This Ritual
+                  </a>
+                )}
+              </div>
 
-              <a
-                href="#contact"
-                className={`block w-full text-center py-3 uppercase tracking-widest text-xs transition-colors ${pkg.featured
-                  ? 'bg-sage-500 text-white hover:bg-sage-400'
-                  : 'border border-stone-600 text-stone-300 hover:border-sage-500 hover:text-white'
-                  }`}
-              >
-                Book This Ritual
-              </a>
             </div>
           ))}
         </div>
 
         <div className="mt-12 text-center">
           <p className="text-stone-500 text-sm italic">
-            * Please note: A deposit is required to secure all bookings.
+            * Please note: A deposit of $50 is preferred to secure all bookings.
           </p>
         </div>
       </div>
-    </section>
+    </section >
   );
 };

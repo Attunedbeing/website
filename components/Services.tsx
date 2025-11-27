@@ -61,7 +61,7 @@ export const Services: React.FC = () => {
           </div>
           <h3 className="text-2xl font-serif text-stone-800 mb-4">Safety and Respect</h3>
           <p className="text-stone-700 max-w-2xl mx-auto leading-relaxed">
-            I prioritize discretion, clear communication, and the use of protective barriers (e.g., gloves) when appropriate. Showers are also part of our sessions to ensure physical and emotional well-being for everyone involved.
+            As a commitment to yours and your loved ones physical and emotional well-being, as well as my own, I practice safety and respect in all interactions. This means that I prioritise discretion and clear communication. Showers are also part of our sessions.
           </p>
         </div>
 

@@ -3,7 +3,7 @@ import { Award } from 'lucide-react';
 
 export const About: React.FC = () => {
   const certifications = [
-    { year: "2025", title: "Attuned Being Immersion", org: "Attuned Being" },
+    { year: "2025", title: "Sacred Touch Immersion", org: "Sacred Being" },
     { year: "2024", title: "Spinal Attunement Certified Practitioner", org: "Somamystica" },
     { year: "2023", title: "Equity in Health Workshop", org: "WellSouth" },
     { year: "2022", title: "Comprehensive First Aid", org: "Red Cross" },

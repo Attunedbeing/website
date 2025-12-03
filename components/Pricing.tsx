@@ -1,45 +1,70 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Airtable from 'airtable';
+
+interface PricingPackage {
+  id: string;
+  name: string;
+  duration: string;
+  price: string;
+  featured: boolean;
+  desc: string;
+  features: string[];
+  order: number;
+  active: boolean;
+}
 
 export const Pricing: React.FC = () => {
-  const packages = [
-    {
-      name: "Taster",
-      duration: "60 Mins",
-      price: "$250",
-      featured: false,
-      desc: "A focused session to release tension and find a moment of calm.",
-      features: ["Consultation", "Sensual Massage (Non-genital)", "Integration"]
-    },
-    {
-      name: "Deep Immersion",
-      duration: "90 Mins",
-      price: "$375",
-      featured: false,
-      desc: "Perfect for first-time visitors. Includes consultation, full body massage, and integration.",
-      features: ["Consultation", "Full Body Massage", "Integration"]
-    },
-    {
-      name: "Sacred Expand",
-      duration: "2 Hours",
-      price: "$500",
-      featured: false,
-      desc: "A deeper journey allowing for more extensive bodywork and slower rhythmic touch.",
-      features: ["Consultation", "Extended Full Body Massage", "Integration", "Full Body Slides"]
-    }
-  ];
+  const [packages, setPackages] = useState<PricingPackage[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const base = new Airtable({ apiKey: 'patDZntiPxTURbGRB.a20381bd6390e4815fbd22e39bf5489212a32728fe20ef6316f8d7167b0668f3' }).base('appR5ETzMTA0JNTPH');
+
+    base('Prices').select({
+      view: "Grid view",
+      sort: [{ field: "Order", direction: "asc" }]
+    }).eachPage(function page(records, fetchNextPage) {
+      const fetchedPackages: PricingPackage[] = records.map(record => ({
+        id: record.id,
+        name: record.get('Package Name') as string,
+        duration: record.get('Duration') as string,
+        price: record.get('Price') as string,
+        featured: record.get('Featured') === true,
+        desc: record.get('Description') as string,
+        features: (record.get('Features') as string || '').split('\n').filter(f => f.trim() !== ''),
+        order: record.get('Order') as number,
+        active: record.get('Active') === true, // Default to true if undefined/null, or check explicitly if it's a checkbox
+      }));
+      setPackages(fetchedPackages);
+      setLoading(false);
+      fetchNextPage();
+    }, function done(err) {
+      if (err) { console.error(err); setLoading(false); return; }
+    });
+  }, []);
+
+  if (loading) {
+    return (
+      <section id="pricing" className="py-24 bg-stone-900 text-stone-50">
+        <div className="container mx-auto px-6 max-w-6xl text-center">
+          <p className="text-sage-200">Loading investment options...</p>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="pricing" className="py-24 bg-stone-900 text-stone-50">
       <div className="container mx-auto px-6 max-w-6xl">
-        <div className="text-center mb-16">
+        <div className="text-left mb-16">
           <h2 className="text-3xl md:text-5xl font-serif text-white mb-4">Investment</h2>
           <p className="text-sage-200">Honoring the exchange of energy and time.</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 align-stretch">
-          {packages.map((pkg, idx) => (
+          {packages.map((pkg) => (
             <div
-              key={idx}
+              key={pkg.id}
               className={`relative p-8 flex flex-col justify-between border ${pkg.featured
                 ? 'border-sage-500 bg-stone-800 scale-105 z-10 shadow-2xl shadow-sage-900/20'
                 : 'border-stone-700 bg-stone-900/50'
@@ -71,7 +96,7 @@ export const Pricing: React.FC = () => {
                 </ul>
               </div>
               <div className="mt-8">
-                {pkg.name === "Taster" ? (
+                {!pkg.active ? (
                   <a
                     className={`block w-full text-center py-3 uppercase tracking-widest text-xs transition-colors ${pkg.featured
                       ? 'bg-stone-700 text-stone-400 cursor-not-allowed'

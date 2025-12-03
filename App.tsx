@@ -6,13 +6,14 @@ import { Ritual } from './components/Ritual';
 import { Services } from './components/Services';
 import { About } from './components/About';
 import { Pricing } from './components/Pricing';
+import { Testimonials } from './components/Testimonials';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 
 const App: React.FC = () => {
   // Simple state to handle scroll transparency for nav if needed, 
   // but Navbar component handles it internally mostly.
-  
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -22,6 +23,7 @@ const App: React.FC = () => {
         <Ritual />
         <Services />
         <About />
+        <Testimonials />
         <Pricing />
         <Contact />
       </main>

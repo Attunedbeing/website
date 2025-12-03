@@ -37,7 +37,7 @@ const TestimonialsList: React.FC<{ testimonials: Testimonial[] }> = ({ testimoni
             scale: 1,
             rotate: 0,
             transition: {
-                type: "spring",
+                type: "spring" as const,
                 stiffness: 50, // Soft spring
                 damping: 20,   // Gentle stop
                 mass: 1.2      // A bit of weight

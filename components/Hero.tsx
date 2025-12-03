@@ -19,13 +19,14 @@ export const Hero: React.FC = () => {
 
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        <span className="block text-stone-200 tracking-[0.3em] text-sm md:text-base uppercase mb-4 font-medium">
-          Embodiment & Healing
-        </span>
+
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif text-white mb-8 leading-tight">
           Honoring Your Body <br />
           <span className="italic text-sage-200">As A Temple</span>
         </h1>
+        <span className="block text-stone-200 tracking-[0.3em] text-sm md:text-base uppercase mb-4 font-medium">
+          Based in Ōtepoti, Dunedin
+        </span>
         <p className="text-lg md:text-xl text-stone-200 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
           A sensual, therapeutic bodywork practice of worship, offered in service to honoring your whole being.
         </p>

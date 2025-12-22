@@ -92,9 +92,9 @@ export const Contact: React.FC = () => {
                   id="interest"
                   className="w-full bg-stone-25 border-b-2 border-stone-200 p-3 focus:outline-none focus:border-sage-500 transition-colors text-stone-800"
                 >
-                  <option>Introductory Session</option>
-                  <option>Deep Immersion</option>
-                  <option>Sacred Expand</option>
+                  <option>Taster 60 min</option>
+                  <option>Indulgence 90 min</option>
+                  <option>Immersion 2hr</option>
                   <option>Other / General Enquiry</option>
                 </select>
               </div>

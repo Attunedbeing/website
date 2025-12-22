@@ -4,18 +4,19 @@ export const Ritual: React.FC = () => {
   const steps = [
     {
       number: "1",
-      title: "Discussion & Agreement",
-      desc: "We'll begin with a conversation about your desires, what feels safe for you, and what I can provide. This helps us create a mutual agreement for our session."
+      title: "Desire Mapping & Agreement",
+      desc: "Crafting your session together, to understand intentions, desires, what feels safe for you, and what I can provide. This helps us create a mutual agreement for each tailored experience."
     },
     {
       number: "2",
       title: "Full Body Oil Massage",
-      desc: "You’ll receive a full body oil massage with check-ins throughout, especially at significant points such as sensitive areas and genitals."
+      desc: "Beginning with a steamy warm shower, you’ll receive a decadent full body massage with warm oil and check-ins throughout. Lead by the wisdom of your pleasure and Nala's intuitive touch."
+    
     },
     {
       number: "3",
       title: "Closing & Aftercare",
-      desc: "Closing and Aftercare to help you integrate your experience."
+      desc: "Space to soak up your experience. This might include resting in stillness, reflective conversation or cuddles to help you integrate your experience."
     }
   ];
 

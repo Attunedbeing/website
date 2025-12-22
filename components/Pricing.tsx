@@ -58,7 +58,7 @@ export const Pricing: React.FC = () => {
       <div className="container mx-auto px-6 max-w-6xl">
         <div className="text-left mb-16">
           <h2 className="text-3xl md:text-5xl font-serif text-white mb-4">Investment</h2>
-          <p className="text-sage-200">Honoring the exchange of energy and time.</p>
+          <p className="text-sage-200">Because a happy nervous system is a gift that travels far beyond yourself.</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 align-stretch">

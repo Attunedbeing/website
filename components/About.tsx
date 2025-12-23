@@ -4,7 +4,7 @@ import { Award } from 'lucide-react';
 export const About: React.FC = () => {
   const certifications = [
     { year: "2025", title: "Sacred Touch Immersion", org: "Sacred Being" },
-    { year: "2024", title: "Spinal Attunement Certified Practitioner", org: "Somamystica" },
+    { year: "2024", title: "Spinal Attunement Certified Practitioner", org: "SomaMystica" },
     { year: "2023", title: "Equity in Health Workshop", org: "WellSouth" },
     { year: "2022", title: "Comprehensive First Aid", org: "Red Cross" },
     { year: "2022", title: "100hr YACEP Trauma Informed Yin", org: "SomaPsych" },
@@ -37,16 +37,16 @@ export const About: React.FC = () => {
 
             <div className="prose prose-stone text-stone-700 mb-12 leading-loose">
               <p className="mb-4">
-                Devoted to the path of embodiment through the navigation of self and the collective being, I have been working one-to-one and in group therapeutic settings since 2015, and am a committed lifelong learner with an ever-evolving personal practice of self-inquiry.
+                I’m devoted to the path of embodiment – learning how to live more fully in this body, in relationship with others, and with the wider world. I’ve been working one‑to‑one and in group therapeutic settings since 2015, and I’m a committed lifelong learner with a personal practice of ongoing self‑inquiry.
               </p>
               <p className="mb-4">
-                Led by compassion, curiosity, and love, I weave the various transmissions of wisdom I have received into experiences of attuned being.
+                Led by compassion, curiosity, and love, I weave the different threads of wisdom I’ve received into experiences of attuned being and tender, sensual care. 
               </p>
               <p className="mb-4">
-                My expression is wide, characterized by playful and nurturing energy.
+                My expression is wide and a little wild – often playful and nurturing, sometimes quiet and deeply still.
               </p>
               <p>
-                I adore human connection, singing, dancing, nourishing food, reading, destigmatization, wellness, among many more.
+                I adore human connection, singing, dancing, nourishing food, reading, destigmatising conversations about bodies and pleasure, and exploring all things wellness (among many more small joys).
               </p>
             </div>
 

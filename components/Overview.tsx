@@ -28,7 +28,10 @@ export const Overview: React.FC = () => {
             <div>
               <h3 className="text-2xl font-serif text-stone-800 mb-4">The Experience</h3>
               <p className="text-stone-600 leading-relaxed mb-6">
-                I bring presence and slow, rhythmic touch, acknowledging your body as a temple to be revered with acceptance, respect, and non-judgment. My intention is to offer you full permission to discover, freely express, and explore your desires within a safe container. By gently reconnecting you to your sensuality and senses, this space provides an opportunity to practice truly receiving.
+               In these sessions, we slow everything right down. Think warm oil, unhurried touch, and plenty of time for your body to arrive.  
+Your body is welcomed as a temple, exactly as it is today – no pressure to relax quickly, feel aroused, or “have a big breakthrough.”  
+We co‑create a safe space where your yes, no, and maybes are all honoured, and where you can gently explore what feels good to you.  
+This is an invitation to practice receiving – care, pleasure, and attention – without needing to perform or give anything back.
               </p>
             </div>
           </div>

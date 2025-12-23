@@ -1,4 +1,4 @@
-timport React from 'react';
+import React from 'react';
 import { ArrowDown } from 'lucide-react';
 
 export const Hero: React.FC = () => {

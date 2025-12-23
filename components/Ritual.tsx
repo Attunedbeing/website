@@ -5,18 +5,18 @@ export const Ritual: React.FC = () => {
     {
       number: "1",
       title: "Desire Mapping & Agreement",
-      desc: "Crafting your session together, to understand intentions, desires, what feels safe for you, and what I can provide. This helps us create a mutual agreement for each tailored experience."
+      desc: "Crafting your session together, getting clear on intentions, desires, what feels safe for you, and what I can offer. This helps us create a mutual agreement for each tailored experience."
     },
     {
       number: "2",
       title: "Full Body Oil Massage",
-      desc: "Beginning with a steamy warm shower, you’ll receive a decadent full body massage with warm oil and check-ins throughout. Lead by the wisdom of your pleasure and Nala's intuitive touch."
+      desc: "Beginning with a steamy warm shower, you’ll receive a decadent full body massage with warm oil and check-ins throughout. Lead by the wisdom of your pleasure, supported by Nala's intuitive touch."
     
     },
     {
       number: "3",
       title: "Closing & Aftercare",
-      desc: "Space to soak up your experience. This might include resting in stillness, reflective conversation or cuddles to help you integrate your experience."
+      desc: "Space to soak up your experience. This might include resting in stillness, reflective conversation or cuddles to support integration."
     }
   ];
 
@@ -29,7 +29,7 @@ export const Ritual: React.FC = () => {
       <div className="container mx-auto px-6 max-w-5xl relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-serif text-sage-100 mb-4">The Ritual</h2>
-          <p className="text-stone-400 max-w-xl mx-auto">Every session is a unique ritual intended to honor your comfort and desires.</p>
+          <p className="text-stone-400 max-w-xl mx-auto">Every session is a unique ritual, co‑created to honour your comfort, your desires, and your boundaries.</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">

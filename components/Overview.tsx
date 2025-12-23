@@ -4,12 +4,12 @@ import { Heart, Sun, Wind, Anchor, Eye, ShieldCheck, Sparkles, PersonStanding, H
 export const Overview: React.FC = () => {
   const benefits = [
     { icon: <PersonStanding className="w-5 h-5" />, title: "Reconnect with yourself", desc: "Explore a deeper connection to your body, senses, and innate sensuality." },
-    { icon: <Sun className="w-5 h-5" />, title: "Experience non-goal-oriented pleasure", desc: "Discover pleasure without pressure, allowing for presence, connection, and expanded states of bliss." },
+    { icon: <Sun className="w-5 h-5" />, title: "Experience non-goal-oriented pleasure", desc: "Discover pleasure without pressure or performance, making room for presence, connection, and expanded states of bliss." },
     { icon: <Heart className="w-5 h-5" />, title: "Deepen your capacity to feel", desc: "Gently broaden your ability to experience a wider range of sensations and emotions. We can slowly reawaken senses that may have been dulled by stress through the mindful use of breath, sound, and movement." },
-    { icon: <Eye className="w-5 h-5" />, title: "Cultivate self-attunement", desc: "Develop a stronger awareness and understanding of your own needs and desires." },
-    { icon: <ShieldCheck className="w-5 h-5" />, title: "Embrace agency over your pleasure", desc: "Learn skills to identify and express your desires and limits." },
-    { icon: <HeartHandshake className="w-5 h-5" />, title: "Release shame and guilt", desc: "Explore dissolving societal conditioning and past experiences that may have created shame or guilt around pleasure." },
-    { icon: <Sparkles className="w-5 h-5" />, title: "Heal with a trauma-aware approach", desc: "Receive support in a safe and understanding environment that acknowledges and respects your unique journey." },
+    { icon: <Eye className="w-5 h-5" />, title: "Cultivate self-attunement", desc: "Grow a clearer awareness and understanding of your own needs and desires." },
+    { icon: <ShieldCheck className="w-5 h-5" />, title: "Embrace agency over your pleasure", desc: "Learn skills to notice and express your desires and limits." },
+    { icon: <HeartHandshake className="w-5 h-5" />, title: "Release shame and guilt", desc: "Discover freedom from societal conditioning and past experiences that may have created shame or guilt around pleasure." },
+    { icon: <Sparkles className="w-5 h-5" />, title: "Heal with a trauma-aware approach", desc: "Receive support in a safe and understanding environment that acknowledges and respects the uniqueness of your path." },
   ];
 
   return (
@@ -38,7 +38,7 @@ This is an invitation to practice receiving â€“ care, pleasure, and attention â€
 
           {/* Right: Benefits Grid */}
           <div className="bg-white p-8 shadow-sm border border-sage-300 rounded-sm">
-            <h4 className="text-l uppercase tracking-widest text-sage-600 mb-8 text-center font-medium">In this experience, you are invited to</h4>
+            <h4 className="text-l uppercase tracking-widest text-sage-600 mb-8 text-center font-medium">In this experience, you're invited to</h4>
             <ul className="space-y-6">
               {benefits.map((item, idx) => (
                 <li key={idx} className="flex gap-4 items-start group">

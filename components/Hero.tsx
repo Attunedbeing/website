@@ -28,7 +28,7 @@ export const Hero: React.FC = () => {
           Based in Ōtepoti, Dunedin
         </span>
         <p className="text-lg md:text-xl text-stone-200 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
-          Sensual, therapeutic bodywork practice of worship, offered in devotion to your whole being, just as you are.
+          Sensual, therapeutic bodywork for all bodies and genders, offered as a practice of worship and devotion to your whole being, just as you are.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a

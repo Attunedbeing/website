@@ -48,6 +48,9 @@ export const About: React.FC = () => {
               <p>
                 I adore human connection, singing, dancing, nourishing food, reading, destigmatising conversations about bodies and pleasure, and exploring all things wellness (among many more small joys).
               </p>
+              <p>
+                In session, you can expect warmth, honesty, a little humour, and a lot of respect for your boundaries and your timing.
+              </p>
             </div>
 
             <div>

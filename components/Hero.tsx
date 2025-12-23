@@ -1,4 +1,4 @@
-import React from 'react';
+timport React from 'react';
 import { ArrowDown } from 'lucide-react';
 
 export const Hero: React.FC = () => {
@@ -28,14 +28,14 @@ export const Hero: React.FC = () => {
           Based in Ōtepoti, Dunedin
         </span>
         <p className="text-lg md:text-xl text-stone-200 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
-          A sensual, therapeutic bodywork practice of worship, offered in service to honoring your whole being.
+          Sensual, therapeutic bodywork practice of worship, offered in devotion to your whole being, just as you are.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="#contact"
             className="bg-sage-500 hover:bg-sage-400 text-white px-8 py-3 uppercase tracking-widest text-sm transition-all duration-300 border border-sage-500"
           >
-            Book a Session
+            Session Options
           </a>
           <a
             href="#overview"

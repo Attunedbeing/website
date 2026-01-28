@@ -92,7 +92,7 @@ export const Contact: React.FC = () => {
                   id="interest"
                   className="w-full bg-stone-25 border-b-2 border-stone-200 p-3 focus:outline-none focus:border-sage-500 transition-colors text-stone-800"
                 >
-                  <option>Taster: 60 Minutes (Unavailabe)</option>
+                  <option>Taster: 60 Minutes (Unavailable)</option>
                   <option>Indulgence: 90 Minutes</option>
                   <option>Immersion: 2 Hours</option>
                   <option>General Enquiry</option>

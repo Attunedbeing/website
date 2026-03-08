@@ -46,8 +46,15 @@ const TestimonialsList: React.FC<{ testimonials: Testimonial[] }> = ({ testimoni
     };
 
     return (
-        <section id="testimonials" className="py-24 bg-stone-50 overflow-hidden">
-            <div className="container mx-auto px-6 max-w-6xl">
+        <section id="testimonials" className="py-24 pt-0 bg-stone-50 overflow-hidden relative">
+            <img
+                src="Images/IMG_2675_HD.JPG"
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover opacity-[0.2] pointer-events-none hidden md:block"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-stone-50 via-transparent to-stone-50 pointer-events-none"></div>
+            <div className="container mx-auto px-6 max-w-6xl relative z-10">
                 <div className="text-left mb-16">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}

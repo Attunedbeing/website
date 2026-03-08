@@ -1,9 +1,9 @@
 import React from 'react';
-import { CheckCircle2, XCircle, Shield } from 'lucide-react';
+import { CheckCircle2, XCircle, Shield, Lock, Leaf, Handshake } from 'lucide-react';
 
 export const Services: React.FC = () => {
   const offered = [
-    "Full‑body massage, including genitals (with your clear consent)",
+    "Full\u2011body massage, including genitals (with your clear consent)",
     "Prostate massage (if desired and agreed)",
     "Energetic connection and presence",
     "Cuddles and soothing touch (if wanted)"
@@ -11,7 +11,7 @@ export const Services: React.FC = () => {
 
   const notOffered = [
     "Reciprocal touch of any kind",
-    "Kissing", 
+    "Kissing",
     "Oral sex",
     "Reciprocal sex of any kind"
   ];
@@ -60,12 +60,31 @@ export const Services: React.FC = () => {
               <Shield className="w-8 h-8" />
             </div>
           </div>
-          <h3 className="text-2xl font-serif text-stone-800 mb-4">A Note on Safety</h3>
-          <p className="text-stone-700 max-w-2xl mx-auto leading-relaxed">
-            As a commitment to your physical and emotional well‑being – and my own – safety, care, and respect are part of every interaction.
-This means I prioritise discretion, clear communication, and shared agreements. To protect your nervous system and ensure you can fully feel and consent, please do not use drugs (unless medically required) or alcohol within 12 hours of your session.
-You’re also invited to shower as part of our time together, so your body can arrive feeling fresh and relaxed.
-          </p>
+          <h3 className="text-2xl font-serif text-stone-800 mb-3">A Note on Safety</h3>
+          <p className="text-stone-600 mb-8 max-w-xl mx-auto">As a commitment to your physical and emotional well{"\u2011"}being {"\u2013"} and my own {"\u2013"} safety, care, and respect are part of every interaction.</p>
+          <div className="grid sm:grid-cols-3 gap-6 text-left max-w-3xl mx-auto">
+            <div className="flex gap-3 items-start">
+              <Lock className="w-5 h-5 text-sage-500 mt-0.5 flex-shrink-0" />
+              <div>
+                <h4 className="font-bold text-stone-800 text-sm uppercase tracking-wide mb-1">Discretion & Communication</h4>
+                <p className="text-stone-600 text-sm leading-relaxed">I prioritise discretion, clear communication, and shared agreements.</p>
+              </div>
+            </div>
+            <div className="flex gap-3 items-start">
+              <Handshake className="w-5 h-5 text-sage-500 mt-0.5 flex-shrink-0" />
+              <div>
+                <h4 className="font-bold text-stone-800 text-sm uppercase tracking-wide mb-1">Sobriety & Consent</h4>
+                <p className="text-stone-600 text-sm leading-relaxed">To protect your nervous system, ensure you can fully feel and consent, please do not use drugs (unless medically required) or alcohol within 12 hours of your session.</p>
+              </div>
+            </div>
+            <div className="flex gap-3 items-start">
+              <Leaf className="w-5 h-5 text-sage-500 mt-0.5 flex-shrink-0" />
+              <div>
+                <h4 className="font-bold text-stone-800 text-sm uppercase tracking-wide mb-1">Arrival</h4>
+                <p className="text-stone-600 text-sm leading-relaxed">You're invited to shower as part of our time together, so your body can arrive feeling fresh and relaxed.</p>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>

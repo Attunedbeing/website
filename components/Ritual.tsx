@@ -11,7 +11,7 @@ export const Ritual: React.FC = () => {
       number: "2",
       title: "Full Body Oil Massage",
       desc: "Beginning with a steamy warm shower, you’ll receive a decadent full body massage with warm oil and check-ins throughout. Lead by the wisdom of your pleasure, supported by Nala's intuitive touch."
-    
+
     },
     {
       number: "3",
@@ -25,6 +25,13 @@ export const Ritual: React.FC = () => {
       {/* Abstract Background element */}
       <div className="absolute top-0 left-0 w-64 h-64 bg-sage-900 rounded-full filter blur-3xl opacity-20 -translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-sage-800 rounded-full filter blur-3xl opacity-10 translate-x-1/2 translate-y-1/2"></div>
+      <img
+        src="Images/IMG_2724_HD.jpeg"
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-5/6 object-cover opacity-[0.15] pointer-events-none md:block"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-stone-900 via-transparent to-stone-900 pointer-events-none"></div>
 
       <div className="container mx-auto px-6 max-w-5xl relative z-10">
         <div className="text-center mb-16">

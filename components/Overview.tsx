@@ -15,12 +15,22 @@ export const Overview: React.FC = () => {
   return (
     <section id="overview" className="py-20 md:py-28 bg-stone-25">
       <div className="container mx-auto px-6 max-w-6xl">
-        <div className="grid md:grid-cols-2 gap-16 items-start">
+        <div className="grid md:grid-cols-2 gap-16 items-stretch">
           {/* Left: Text Content */}
-          <div className="space-y-8">
+          <div className="flex flex-col gap-8">
+
+            {/* Massage Table Image */}
+            <div className="relative flex-1 min-h-[200px]">
+              <div className="absolute inset-0 border border-sage-300 rounded-sm"></div>
+              <img
+                src="Images/PXL_20260222_233928026~2_HD.jpeg"
+                alt="Massage table in a warm, inviting treatment space"
+                className="relative z-10 w-full h-full object-cover rounded-sm transform -translate-x-3 -translate-y-3"
+              />
+            </div>
             <div>
               <h2 className="text-3xl md:text-4xl font-serif text-stone-900 mb-6">Overview</h2>
-              <p className="text-stone-600 leading-relaxed text-lg">
+              <p className="text-stone-600 leading-relaxed">
                 <strong className="text-sage-600">Tantric massage</strong> is a sensual, therapeutic bodywork practice of worship, offered in service to honouring your whole being. Inviting you to experience deep relaxation, grounding, joy, arousal, pleasure and beyond.
               </p>
             </div>
@@ -28,18 +38,20 @@ export const Overview: React.FC = () => {
             <div>
               <h3 className="text-2xl font-serif text-stone-800 mb-4">The Experience</h3>
               <p className="text-stone-600 leading-relaxed mb-6">
-               In these sessions, we slow everything right down. Think warm oil, unhurried touch, and plenty of time for your body to arrive.  
-Your body is welcomed as a temple, exactly as it is today – no pressure to relax quickly, feel aroused, or “have a big breakthrough.”  
-We co‑create a safe space where your yes, no, and maybes are all honoured, and where you can gently explore what feels good to you.  
-This is an invitation to practice receiving – care, pleasure, and attention – without needing to perform or give anything back.
+                In these sessions, we slow everything right down. Think warm oil, unhurried touch, and plenty of time for your body to arrive.
+                Your body is welcomed as a temple, exactly as it is today {"\u2013"} no pressure to relax quickly, feel aroused, or {"\u201C"}have a big breakthrough.{"\u201D"}
+                <br /><br />
+                We co{"\u2011"}create a safe space where your yes, no, and maybes are all honoured, and where you can gently explore what feels good to you.
+                This is an invitation to practice receiving {"\u2013"} care, pleasure, and attention {"\u2013"} without needing to perform or give anything back.
               </p>
             </div>
+
           </div>
 
           {/* Right: Benefits Grid */}
           <div className="bg-white p-8 shadow-sm border border-sage-300 rounded-sm">
             <h4 className="text-l uppercase tracking-widest text-sage-600 mb-8 text-center font-medium">In this experience, you're invited to</h4>
-            <ul className="space-y-6">
+            <ul className="space-y-10">
               {benefits.map((item, idx) => (
                 <li key={idx} className="flex gap-4 items-start group">
                   <div className="mt-1 text-sage-500 group-hover:text-sage-700 transition-colors">

@@ -26,10 +26,10 @@ export const Ritual: React.FC = () => {
       <div className="absolute top-0 left-0 w-64 h-64 bg-sage-900 rounded-full filter blur-3xl opacity-20 -translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-sage-800 rounded-full filter blur-3xl opacity-10 translate-x-1/2 translate-y-1/2"></div>
       <img
-        src="Images/IMG_2724_HD.jpeg"
+        src="Images/Nala-6.JPEG"
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 w-full h-5/6 object-cover opacity-[0.15] pointer-events-none md:block"
+        className="absolute inset-0 w-full h-full object-cover opacity-[0.40] pointer-events-none md:block"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-stone-900 via-transparent to-stone-900 pointer-events-none"></div>
 

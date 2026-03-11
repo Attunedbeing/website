@@ -7,13 +7,13 @@ export const Hero: React.FC = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="Images/IMG_2724_HD.jpeg"
+          src="/Images/Nala-10.JPEG"
           /* https://images.unsplash.com/photo-1553955023-75b1347c6c0f?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D */
           alt="Serene massage setting with flowers"
           className="w-full h-full object-cover"
         />
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-stone-900 mix-blend-multiply"></div>
+        <div className="absolute inset-0 bg-stone-900 opacity-[0.90] mix-blend-multiply"></div>
         {/* Sage tint */}
         <div className="absolute inset-0 bg-sage-900/25"></div>
       </div>

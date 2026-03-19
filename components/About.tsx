@@ -36,7 +36,7 @@ export const About: React.FC = () => {
             <h2 className="text-4xl font-serif text-stone-900 mb-8">About Nala</h2>
             <div className="prose prose-stone text-stone-700 leading-loose">
               <p className="mb-4">
-                I'm devoted to the path of embodiment {"\u2013"} learning how to live more fully in this body, in relationship with others, and with the wider world. I've been working one{"\u2011"}to{"\u2011"}one and in group therapeutic settings since 2015, and I'm a committed lifelong learner with a personal practice of ongoing self{"\u2011"}inquiry.
+                I'm devoted to the path of embodiment {"\u2013"} deepening my understanding of what it means to live fully in this body, in relationship with others, and with the wider world. I've been working one{"\u2011"}to{"\u2011"}one and in group therapeutic settings since 2015, and I'm a committed lifelong learner with a personal practice of ongoing self{"\u2011"}inquiry.
               </p>
               <p className="mb-4">
                 Led by compassion, curiosity, and love, I weave the different threads of wisdom I've received into experiences of attuned being and tender, sensual care.

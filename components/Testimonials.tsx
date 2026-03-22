@@ -100,14 +100,15 @@ export const Testimonials: React.FC = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('/api/testimonials')
+    fetch('/api/testimonials')
             .then(res => res.json())
             .then(data => {
-                setTestimonials(data);
+                setTestimonials(Array.isArray(data) ? data : []);
                 setLoading(false);
             })
             .catch(err => {
                 console.error(err);
+                setTestimonials([]);
                 setLoading(false);
             });
     }, []);

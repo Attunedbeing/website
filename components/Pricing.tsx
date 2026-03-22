@@ -20,11 +20,12 @@ export const Pricing: React.FC = () => {
     fetch('/api/pricing')
       .then(res => res.json())
       .then(data => {
-        setPackages(data);
+        setPackages(Array.isArray(data) ? data : []);
         setLoading(false);
       })
       .catch(err => {
         console.error(err);
+        setPackages([]);
         setLoading(false);
       });
   }, []);

@@ -1,4 +1,4 @@
-export default async (req: Request) => {
+export default async (req) => {
   if (req.method !== "POST") {
     return new Response(JSON.stringify({ error: "Method not allowed" }), {
       status: 405,
@@ -6,7 +6,7 @@ export default async (req: Request) => {
     });
   }
 
-  const apiKey = Netlify.env.get("AIRTABLE_API_TOKEN");
+  const apiKey = process.env.AIRTABLE_API_TOKEN;
   const baseId = "appR5ETzMTA0JNTPH";
 
   const body = await req.json();
@@ -21,16 +21,14 @@ export default async (req: Request) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        records: [
-          {
-            fields: {
-              fld6ZMtE8JeGcdOCw: name,
-              fldC1UaUd18McnRwY: message,
-              fldsTnEdh9ceNSA1n: email,
-              fldgbsDtXHfSr7ria: interest,
-            },
+        records: [{
+          fields: {
+            fld6ZMtE8JeGcdOCw: name,
+            fldC1UaUd18McnRwY: message,
+            fldsTnEdh9ceNSA1n: email,
+            fldgbsDtXHfSr7ria: interest,
           },
-        ],
+        }],
       }),
     }
   );
@@ -48,6 +46,4 @@ export default async (req: Request) => {
   });
 };
 
-export const config = {
-  path: "/api/enquiry",
-};
+export const config = { path: "/api/enquiry" };

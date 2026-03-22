@@ -1,21 +1,17 @@
-export default async (req: Request) => {
-  const apiKey = Netlify.env.get("AIRTABLE_API_TOKEN");
+export default async (req) => {
+  const apiKey = process.env.AIRTABLE_API_TOKEN;
   const baseId = "appR5ETzMTA0JNTPH";
 
   const params = new URLSearchParams({
     maxRecords: "10",
-    "filterByFormula": "{Active} = 1",
+    filterByFormula: "{Active} = 1",
     "sort[0][field]": "Order",
     "sort[0][direction]": "asc",
   });
 
   const response = await fetch(
     `https://api.airtable.com/v0/${baseId}/Testimonials?${params}`,
-    {
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-      },
-    }
+    { headers: { Authorization: `Bearer ${apiKey}` } }
   );
 
   if (!response.ok) {
@@ -26,8 +22,7 @@ export default async (req: Request) => {
   }
 
   const data = await response.json();
-
-  const testimonials = data.records.map((record: any) => ({
+  const testimonials = data.records.map((record) => ({
     id: record.id,
     name: record.fields["Name"] ?? "",
     message: record.fields["Testimonial message"] ?? "",
@@ -41,6 +36,4 @@ export default async (req: Request) => {
   });
 };
 
-export const config = {
-  path: "/api/testimonials",
-};
+export const config = { path: "/api/testimonials" };

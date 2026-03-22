@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Airtable from 'airtable';
 import { Quote } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -12,13 +11,12 @@ interface Testimonial {
 }
 
 const TestimonialsList: React.FC<{ testimonials: Testimonial[] }> = ({ testimonials }) => {
-    // "Nature" vibe variants: gentle rise and bloom
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.3, // Slow stagger for a relaxed feel
+                staggerChildren: 0.3,
                 delayChildren: 0.1
             }
         }
@@ -29,7 +27,7 @@ const TestimonialsList: React.FC<{ testimonials: Testimonial[] }> = ({ testimoni
             opacity: 0,
             y: 40,
             scale: 0.95,
-            rotate: -1 // Slight rotation for organic feel
+            rotate: -1
         },
         visible: {
             opacity: 1,
@@ -38,23 +36,21 @@ const TestimonialsList: React.FC<{ testimonials: Testimonial[] }> = ({ testimoni
             rotate: 0,
             transition: {
                 type: "spring" as const,
-                stiffness: 50, // Soft spring
-                damping: 20,   // Gentle stop
-                mass: 1.2      // A bit of weight
+                stiffness: 50,
+                damping: 20,
+                mass: 1.2
             }
         }
     };
 
     return (
         <section id="testimonials" className="py-24 pt-0 bg-stone-50 overflow-hidden relative">
-            {/* Background image */}
             <img
                 src="Images/IMG_2675_HD.JPG"
                 alt=""
                 aria-hidden="true"
                 className="absolute inset-0 w-full h-full object-cover opacity-[0.3] pointer-events-none hidden md:block"
             />
-            {/* Gradient overlay - fades in from top, dark at bottom */}
             <div className="absolute inset-0 bg-gradient-to-b from-stone-50 via-transparent to-stone-900 pointer-events-none"></div>
             <div className="container mx-auto px-6 max-w-6xl relative z-10">
                 <div className="text-left mb-16">
@@ -104,27 +100,16 @@ export const Testimonials: React.FC = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const base = new Airtable({ apiKey: 'patDZntiPxTURbGRB.a20381bd6390e4815fbd22e39bf5489212a32728fe20ef6316f8d7167b0668f3' }).base('appR5ETzMTA0JNTPH');
-
-        base('Testimonials').select({
-            maxRecords: 10,
-            view: "Grid view",
-            filterByFormula: "{Active} = 1",
-            sort: [{ field: "Order", direction: "asc" }]
-        }).eachPage(function page(records, fetchNextPage) {
-            const fetchedTestimonials: Testimonial[] = records.map(record => ({
-                id: record.id,
-                name: record.get('Name') as string,
-                message: record.get('Testimonial message') as string,
-                featured: record.get('Featured') === true,
-                order: record.get('Order') as number,
-            }));
-            setTestimonials(fetchedTestimonials);
-            setLoading(false);
-            fetchNextPage();
-        }, function done(err) {
-            if (err) { console.error(err); setLoading(false); return; }
-        });
+        fetch('/api/testimonials')
+            .then(res => res.json())
+            .then(data => {
+                setTestimonials(data);
+                setLoading(false);
+            })
+            .catch(err => {
+                console.error(err);
+                setLoading(false);
+            });
     }, []);
 
     if (loading) {

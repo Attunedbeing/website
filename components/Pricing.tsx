@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Airtable from 'airtable';
 
 interface PricingPackage {
   id: string;
@@ -18,29 +17,16 @@ export const Pricing: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const base = new Airtable({ apiKey: 'patDZntiPxTURbGRB.a20381bd6390e4815fbd22e39bf5489212a32728fe20ef6316f8d7167b0668f3' }).base('appR5ETzMTA0JNTPH');
-
-    base('Prices').select({
-      view: "Grid view",
-      sort: [{ field: "Order", direction: "asc" }]
-    }).eachPage(function page(records, fetchNextPage) {
-      const fetchedPackages: PricingPackage[] = records.map(record => ({
-        id: record.id,
-        name: record.get('Package Name') as string,
-        duration: record.get('Duration') as string,
-        price: record.get('Price') as string,
-        featured: record.get('Featured') === true,
-        desc: record.get('Description') as string,
-        features: (record.get('Features') as string || '').split('\n').filter(f => f.trim() !== ''),
-        order: record.get('Order') as number,
-        active: record.get('Active') === true, // Default to true if undefined/null, or check explicitly if it's a checkbox
-      }));
-      setPackages(fetchedPackages);
-      setLoading(false);
-      fetchNextPage();
-    }, function done(err) {
-      if (err) { console.error(err); setLoading(false); return; }
-    });
+    fetch('/api/pricing')
+      .then(res => res.json())
+      .then(data => {
+        setPackages(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error(err);
+        setLoading(false);
+      });
   }, []);
 
   if (loading) {
@@ -128,6 +114,6 @@ export const Pricing: React.FC = () => {
           </p>
         </div>
       </div>
-    </section >
+    </section>
   );
 };

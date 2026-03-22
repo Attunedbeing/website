@@ -1,43 +1,32 @@
 import React, { useState } from 'react';
 import { Send } from 'lucide-react';
-import 'airtable';
-import Airtable from 'airtable';
 
 export const Contact: React.FC = () => {
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setStatus('submitting');
 
-    var base = new Airtable({ apiKey: 'patDZntiPxTURbGRB.a20381bd6390e4815fbd22e39bf5489212a32728fe20ef6316f8d7167b0668f3' }).base('appR5ETzMTA0JNTPH');
+    const form = e.target as HTMLFormElement;
+    const name = (form.elements.namedItem('FullName') as HTMLInputElement).value;
+    const email = (form.elements.namedItem('email') as HTMLInputElement).value;
+    const message = (form.elements.namedItem('message') as HTMLTextAreaElement).value;
+    const interest = (form.elements.namedItem('interest') as HTMLSelectElement).value;
 
-    const name = (e.target as HTMLFormElement).FullName.value;
-    const email = (e.target as HTMLFormElement).email.value;
-    const message = (e.target as HTMLFormElement).message.value;
-    const interest = (e.target as HTMLFormElement).interest.value;
-
-    base('tbl49mJe979penoD4').create([
-      {
-        "fields": {
-          "fld6ZMtE8JeGcdOCw": name,       // Name
-          "fldC1UaUd18McnRwY": message,    // Message
-          "fldsTnEdh9ceNSA1n": email,      // Email
-          "fldgbsDtXHfSr7ria": interest,   // Service
-        }
-      }
-    ], function (err, records) {
-      if (err) {
-        console.error(err);
-        return;
-      }
-      records.forEach(function (record) {
-        console.log(record.getId());
+    try {
+      const response = await fetch('/api/enquiry', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message, interest }),
       });
-    });
-    setTimeout(() => {
+
+      if (!response.ok) throw new Error('Submission failed');
       setStatus('success');
-    }, 1500);
+    } catch (err) {
+      console.error(err);
+      setStatus('error');
+    }
   };
 
   return (
@@ -64,12 +53,16 @@ export const Contact: React.FC = () => {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
+              {status === 'error' && (
+                <p className="text-red-500 text-sm text-center">Something went wrong. Please try again.</p>
+              )}
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label htmlFor="name" className="text-xs uppercase tracking-widest text-stone-500 font-bold">Name</label>
+                  <label htmlFor="FullName" className="text-xs uppercase tracking-widest text-stone-500 font-bold">Name</label>
                   <input
                     type="text"
                     id="FullName"
+                    name="FullName"
                     className="w-full bg-stone-25 border-b-2 border-stone-200 p-3 focus:outline-none focus:border-sage-500 transition-colors text-stone-800"
                     placeholder="Your full name"
                   />
@@ -79,6 +72,7 @@ export const Contact: React.FC = () => {
                   <input
                     type="email"
                     id="email"
+                    name="email"
                     required
                     className="w-full bg-stone-25 border-b-2 border-stone-200 p-3 focus:outline-none focus:border-sage-500 transition-colors text-stone-800"
                     placeholder="your@email.com"
@@ -90,6 +84,7 @@ export const Contact: React.FC = () => {
                 <label htmlFor="interest" className="text-xs uppercase tracking-widest text-stone-500 font-bold">Interested Service</label>
                 <select
                   id="interest"
+                  name="interest"
                   className="w-full bg-stone-25 border-b-2 border-stone-200 p-3 focus:outline-none focus:border-sage-500 transition-colors text-stone-800"
                 >
                   <option>Taster: 60 Minutes (Unavailable)</option>
@@ -103,6 +98,7 @@ export const Contact: React.FC = () => {
                 <label htmlFor="message" className="text-xs uppercase tracking-widest text-stone-500 font-bold">Message</label>
                 <textarea
                   id="message"
+                  name="message"
                   rows={4}
                   required
                   className="w-full bg-stone-25 border-b-2 border-stone-200 p-3 focus:outline-none focus:border-sage-500 transition-colors text-stone-800"

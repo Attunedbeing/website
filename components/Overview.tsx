@@ -31,7 +31,7 @@ export const Overview: React.FC = () => {
             <div>
               <h2 className="text-3xl md:text-4xl font-serif text-stone-900 mb-6">Tantric Massage</h2>
               <p className="text-stone-600 leading-relaxed">
-                <strong className="text-sage-600">A sensual, therapeutic bodywork practice of worship, offered in service to honouring your whole being. Inviting you to experience deep relaxation, grounding, joy, arousal, pleasure and beyond.
+                <strong className="text-sage-600">A sensual, therapeutic bodywork practice of worship, offered in service to honouring your whole being. Inviting you to experience deep relaxation, grounding, joy, arousal, pleasure and beyond.</strong>
               </p>
             </div>
 

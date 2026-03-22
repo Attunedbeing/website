@@ -1,6 +1,4 @@
-import type { Context } from "@netlify/functions";
-
-export default async (req: Request, context: Context) => {
+export default async (req: Request) => {
   const apiKey = Netlify.env.get("AIRTABLE_API_TOKEN");
   const baseId = "appR5ETzMTA0JNTPH";
 

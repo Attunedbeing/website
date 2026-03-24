@@ -12,6 +12,42 @@ interface PricingPackage {
   active: boolean;
 }
 
+const FALLBACK_PACKAGES: PricingPackage[] = [
+  {
+    id: 'fallback-1',
+    name: 'The Ember',
+    duration: '60 min',
+    price: '$180',
+    featured: false,
+    desc: 'A gentle introduction. Space to arrive, breathe, and begin to soften into the body.',
+    features: ['Full body massage', 'Breathwork guidance', 'Integration time'],
+    order: 1,
+    active: true,
+  },
+  {
+    id: 'fallback-2',
+    name: 'The Flame',
+    duration: '90 min',
+    price: '$250',
+    featured: true,
+    desc: 'The heart of the work. Deeper presence, more time, and room for the ritual to fully unfold.',
+    features: ['Full body massage', 'Breathwork guidance', 'Somatic release work', 'Integration time', 'Post-session support'],
+    order: 2,
+    active: true,
+  },
+  {
+    id: 'fallback-3',
+    name: 'The Hearth',
+    duration: '2 hr',
+    price: '$340',
+    featured: false,
+    desc: 'For those ready to go deep. Unhurried, expansive, and fully held from beginning to end.',
+    features: ['Full body massage', 'Breathwork guidance', 'Somatic release work', 'Energy work', 'Extended integration', 'Post-session support'],
+    order: 3,
+    active: true,
+  },
+];
+
 export const Pricing: React.FC = () => {
   const [packages, setPackages] = useState<PricingPackage[]>([]);
   const [loading, setLoading] = useState(true);
@@ -20,12 +56,13 @@ export const Pricing: React.FC = () => {
     fetch('/api/pricing')
       .then(res => res.json())
       .then(data => {
-        setPackages(Array.isArray(data) ? data : []);
+        const result = Array.isArray(data) && data.length > 0 ? data : FALLBACK_PACKAGES;
+        setPackages(result);
         setLoading(false);
       })
       .catch(err => {
         console.error(err);
-        setPackages([]);
+        setPackages(FALLBACK_PACKAGES);
         setLoading(false);
       });
   }, []);

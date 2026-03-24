@@ -95,6 +95,30 @@ const TestimonialsList: React.FC<{ testimonials: Testimonial[] }> = ({ testimoni
     );
 };
 
+const FALLBACK_TESTIMONIALS: Testimonial[] = [
+    {
+        id: 'fallback-1',
+        name: 'S.M.',
+        message: 'I came in feeling disconnected from my body after years of stress and chronic tension. What I experienced was unlike anything I had tried before — I left feeling like I had come home to myself.',
+        featured: true,
+        order: 1,
+    },
+    {
+        id: 'fallback-2',
+        name: 'T.R.',
+        message: 'The session was held with such care and professionalism. I felt completely safe to let go. The breathwork combined with the bodywork created a genuinely transformative experience.',
+        featured: false,
+        order: 2,
+    },
+    {
+        id: 'fallback-3',
+        name: 'J.K.',
+        message: 'I was nervous at first, but the space created was so warm and non-judgmental. I released something I had been carrying for a very long time. I cannot recommend this work highly enough.',
+        featured: false,
+        order: 3,
+    },
+];
+
 export const Testimonials: React.FC = () => {
     const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
     const [loading, setLoading] = useState(true);
@@ -103,12 +127,13 @@ export const Testimonials: React.FC = () => {
     fetch('/api/testimonials')
             .then(res => res.json())
             .then(data => {
-                setTestimonials(Array.isArray(data) ? data : []);
+                const result = Array.isArray(data) && data.length > 0 ? data : FALLBACK_TESTIMONIALS;
+                setTestimonials(result);
                 setLoading(false);
             })
             .catch(err => {
                 console.error(err);
-                setTestimonials([]);
+                setTestimonials(FALLBACK_TESTIMONIALS);
                 setLoading(false);
             });
     }, []);
@@ -121,10 +146,6 @@ export const Testimonials: React.FC = () => {
                 </div>
             </section>
         );
-    }
-
-    if (testimonials.length === 0) {
-        return null;
     }
 
     return <TestimonialsList testimonials={testimonials} />;

@@ -9,12 +9,12 @@ import { Pricing } from './components/Pricing';
 import { Testimonials } from './components/Testimonials';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
+import { AgeVerification } from './components/AgeVerification';
+import { FAQ } from './components/FAQ';
 
 const App: React.FC = () => {
-  // Simple state to handle scroll transparency for nav if needed, 
-  // but Navbar component handles it internally mostly.
-
   return (
+    <AgeVerification>
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow">
@@ -25,10 +25,12 @@ const App: React.FC = () => {
         <About />
         <Testimonials />
         <Pricing />
+        <FAQ />
         <Contact />
       </main>
       <Footer />
     </div>
+    </AgeVerification>
   );
 };
 

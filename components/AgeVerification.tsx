@@ -32,7 +32,7 @@ export const AgeVerification: React.FC<Props> = ({ children }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-stone-950">
       <div className="max-w-md w-full mx-6 text-center">
-        <p className="font-serif text-3xl md:text-4xl text-white mb-3">Attunement</p>
+        <p className="font-serif text-3xl md:text-4xl text-white mb-3">Attuned Being</p>
         <div className="w-12 h-px bg-sage-500 mx-auto mb-10"></div>
 
         {declined ? (

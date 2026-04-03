@@ -91,6 +91,7 @@ export const Contact: React.FC = () => {
                   <option>Indulgence: 90 Minutes</option>
                   <option>Immersion: 2 Hours</option>
                   <option>General Enquiry</option>
+                  <option>Meet & Greet</option>
                 </select>
               </div>
 

@@ -1,71 +1,8 @@
-import React, { useEffect, useState } from 'react';
-
-interface PricingPackage {
-  id: string;
-  name: string;
-  duration: string;
-  price: string;
-  featured: boolean;
-  desc: string;
-  features: string[];
-  order: number;
-  active: boolean;
-}
-
-const FALLBACK_PACKAGES: PricingPackage[] = [
-  {
-    id: 'fallback-1',
-    name: 'The Ember',
-    duration: '60 min',
-    price: '$180',
-    featured: false,
-    desc: 'A gentle introduction. Space to arrive, breathe, and begin to soften into the body.',
-    features: ['Full body massage', 'Breathwork guidance', 'Integration time'],
-    order: 1,
-    active: true,
-  },
-  {
-    id: 'fallback-2',
-    name: 'The Flame',
-    duration: '90 min',
-    price: '$250',
-    featured: true,
-    desc: 'The heart of the work. Deeper presence, more time, and room for the ritual to fully unfold.',
-    features: ['Full body massage', 'Breathwork guidance', 'Somatic release work', 'Integration time', 'Post-session support'],
-    order: 2,
-    active: true,
-  },
-  {
-    id: 'fallback-3',
-    name: 'The Hearth',
-    duration: '2 hr',
-    price: '$340',
-    featured: false,
-    desc: 'For those ready to go deep. Unhurried, expansive, and fully held from beginning to end.',
-    features: ['Full body massage', 'Breathwork guidance', 'Somatic release work', 'Energy work', 'Extended integration', 'Post-session support'],
-    order: 3,
-    active: true,
-  },
-];
+import React from 'react';
+import { useSiteData } from './SiteDataContext';
 
 export const Pricing: React.FC = () => {
-  const [packages, setPackages] = useState<PricingPackage[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetch('/api/pricing')
-      .then(res => res.json())
-      .then(data => {
-        const result = Array.isArray(data) && data.length > 0 ? data : FALLBACK_PACKAGES;
-        setPackages(result);
-        setLoading(false);
-      })
-      .catch(err => {
-        console.error(err);
-        setPackages(FALLBACK_PACKAGES);
-        setLoading(false);
-      });
-  }, []);
+  const { packages, loading } = useSiteData();
 
   if (loading) {
     return (
@@ -106,9 +43,7 @@ export const Pricing: React.FC = () => {
                   <span className="text-4xl font-light text-sage-300">{pkg.price}</span>
                   <span className="text-stone-500 text-sm uppercase">{pkg.duration}</span>
                 </div>
-                <p className="text-stone-400 text-sm mb-8 leading-relaxed">
-                  {pkg.desc}
-                </p>
+                <p className="text-stone-400 text-sm mb-8 leading-relaxed">{pkg.desc}</p>
 
                 <ul className="space-y-3 mb-8">
                   {pkg.features.map((feature, fIdx) => (
@@ -121,27 +56,21 @@ export const Pricing: React.FC = () => {
               </div>
               <div className="mt-8">
                 {!pkg.active ? (
-                  <a
-                    className={`block w-full text-center py-3 uppercase tracking-widest text-xs transition-colors ${pkg.featured
-                      ? 'bg-stone-700 text-stone-400 cursor-not-allowed'
-                      : 'border border-stone-700 text-stone-500 cursor-not-allowed'
-                      }`}
-                  >
+                  <a className={`block w-full text-center py-3 uppercase tracking-widest text-xs transition-colors ${pkg.featured
+                    ? 'bg-stone-700 text-stone-400 cursor-not-allowed'
+                    : 'border border-stone-700 text-stone-500 cursor-not-allowed'
+                    }`}>
                     Not available
                   </a>
                 ) : (
-                  <a
-                    href="#contact"
-                    className={`block w-full text-center py-3 uppercase tracking-widest text-xs transition-colors ${pkg.featured
-                      ? 'bg-sage-500 text-white hover:bg-sage-400'
-                      : 'border border-stone-600 text-stone-300 hover:border-sage-500 hover:text-white'
-                      }`}
-                  >
+                  <a href="#contact" className={`block w-full text-center py-3 uppercase tracking-widest text-xs transition-colors ${pkg.featured
+                    ? 'bg-sage-500 text-white hover:bg-sage-400'
+                    : 'border border-stone-600 text-stone-300 hover:border-sage-500 hover:text-white'
+                    }`}>
                     Book This Ritual
                   </a>
                 )}
               </div>
-
             </div>
           ))}
         </div>

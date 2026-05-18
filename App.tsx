@@ -11,10 +11,13 @@ import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { AgeVerification } from './components/AgeVerification';
 import { FAQ } from './components/FAQ';
+import { SubscribePopup } from './components/SubscribePopup';
+import { SiteDataProvider } from './components/SiteDataContext';
 
 const App: React.FC = () => {
   return (
     <AgeVerification>
+    <SiteDataProvider>
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow">
@@ -29,7 +32,9 @@ const App: React.FC = () => {
         <Contact />
       </main>
       <Footer />
+      <SubscribePopup />
     </div>
+    </SiteDataProvider>
     </AgeVerification>
   );
 };

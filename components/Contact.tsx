@@ -3,6 +3,7 @@ import { Send } from 'lucide-react';
 
 export const Contact: React.FC = () => {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [subscribe, setSubscribe] = useState(true);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,6 +23,15 @@ export const Contact: React.FC = () => {
       });
 
       if (!response.ok) throw new Error('Submission failed');
+
+      if (subscribe) {
+        await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email }),
+        });
+      }
+
       setStatus('success');
     } catch (err) {
       console.error(err);
@@ -41,7 +51,7 @@ export const Contact: React.FC = () => {
           </div>
 
           {status === 'success' ? (
-            <div className="bg-sage-100 border border-sage-200 text-sage-800 p-8 text-center animate-fade-in">
+            <div className="bg-sage-200 border border-sage-200 text-sage-800 p-8 text-center animate-fade-in">
               <h3 className="text-xl font-serif mb-2">Thank you for reaching out.</h3>
               <p>Your message has been received. I will be in touch soon.</p>
               <button
@@ -105,6 +115,19 @@ export const Contact: React.FC = () => {
                   className="w-full bg-stone-25 border-b-2 border-stone-200 p-3 focus:outline-none focus:border-sage-500 transition-colors text-stone-800"
                   placeholder="Share a little about what brings you here..."
                 ></textarea>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <input
+                  type="checkbox"
+                  id="subscribe"
+                  checked={subscribe}
+                  onChange={(e) => setSubscribe(e.target.checked)}
+                  className="w-4 h-4 accent-stone-900 cursor-pointer"
+                />
+                <label htmlFor="subscribe" className="text-sm text-stone-500 cursor-pointer">
+                  Keep me updated with new offerings and events
+                </label>
               </div>
 
               <div className="pt-4 text-center">

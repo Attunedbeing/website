@@ -37,7 +37,7 @@ Claude will read this file and update it as work is completed. You can also edit
 - [x] Replace em-dashes with hyphens in all site copy
 - [x] Instagram + Facebook links in footer
   - Instagram confirmed: instagram.com/attuned.being
-- [-] Confirm Facebook page URL with Ellana (footer currently guesses facebook.com/attuned.being)
+- [x] Confirm Facebook page URL with Ellana (real URL now in footer)
 - [-] Swap gallery placeholder photos
   - Waiting on an email from Ellana with the new photos
 

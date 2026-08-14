@@ -2,15 +2,14 @@ import React from 'react';
 import { Instagram, Facebook } from 'lucide-react';
 
 const INSTAGRAM_URL = 'https://www.instagram.com/attuned.being/';
-// TODO: confirm Facebook page URL with Ellana before merging to production
-const FACEBOOK_URL = 'https://www.facebook.com/attuned.being';
+const FACEBOOK_URL = 'https://www.facebook.com/profile.php?id=61589695391260';
 
 export const Footer: React.FC = () => {
   return (
     <footer className="bg-stone-950 text-stone-400 py-12 text-center border-t border-stone-900">
       <div className="container mx-auto px-6">
-        <p className="font-serif text-xl text-sage-100 mb-4">Attuned Being</p>
-        <div className="flex justify-center gap-5 mb-6">
+        <div className="flex items-center justify-center gap-4 mb-4">
+          <p className="font-serif text-xl text-sage-100">Attuned Being</p>
           <a
             href={INSTAGRAM_URL}
             target="_blank"

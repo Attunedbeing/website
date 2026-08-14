@@ -26,6 +26,10 @@ dist-ssr
 # Local Netlify folder
 .netlify
 
+# Local secrets (Instagram token etc.) — never commit
+.env
+.env.*
+
 # Meeting recordings (local only, not for the repo)
 recordings/
 

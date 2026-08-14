@@ -13,6 +13,7 @@ import { AgeVerification } from './components/AgeVerification';
 import { FAQ } from './components/FAQ';
 import { SubscribePopup } from './components/SubscribePopup';
 import { SiteDataProvider } from './components/SiteDataContext';
+import { Gallery } from './components/Gallery';
 
 const App: React.FC = () => {
   return (
@@ -27,6 +28,7 @@ const App: React.FC = () => {
         <Services />
         <About />
         <Testimonials />
+        <Gallery />
         <Pricing />
         <FAQ />
         <Contact />

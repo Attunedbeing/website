@@ -22,12 +22,19 @@ Claude will read this file and update it as work is completed. You can also edit
 
 ## Gallery / Instagram
 
-- [ ] Gallery component — static version with placeholder images
-- [-] Instagram Netlify function
-  - Needs: Nala to create Instagram Business/Creator account, link to a Facebook Page, create a Meta Developer App, and generate a long-lived access token
-- [-] Connect gallery to Instagram feed
-  - Needs: Instagram Netlify function to be done first
+- [x] Gallery component — static version with placeholder images
+- [x] Instagram Netlify function
+  - Instagram Login route (no Facebook Page needed), Meta app ID 2045741559312901
+  - Token stored in Netlify as INSTAGRAM_ACCESS_TOKEN (secret) and in local .env (gitignored)
+- [~] Connect gallery to Instagram feed
+  - Working end-to-end locally via netlify dev; goes live on next deploy (commit + push needed)
 
 ## Maintenance
 
 - [ ] Scheduled Netlify Function to auto-refresh Instagram access token (expires every 60 days)
+  - Current token generated 2026-08-14, expires ~2026-10-13
+
+## Upgrades (paid)
+
+- [ ] Airtable response caching via Netlify Blobs — 24hr TTL, demand-driven refresh
+  - Ready to go on branch `feature/airtable-caching`, merge when agreed

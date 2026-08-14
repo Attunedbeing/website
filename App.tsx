@@ -12,6 +12,7 @@ import { Footer } from './components/Footer';
 import { AgeVerification } from './components/AgeVerification';
 import { FAQ } from './components/FAQ';
 import { SubscribePopup } from './components/SubscribePopup';
+import { Subscribe } from './components/Subscribe';
 import { SiteDataProvider } from './components/SiteDataContext';
 import { Gallery } from './components/Gallery';
 
@@ -32,6 +33,7 @@ const App: React.FC = () => {
         <Pricing />
         <FAQ />
         <Contact />
+        <Subscribe />
       </main>
       <Footer />
       <SubscribePopup />

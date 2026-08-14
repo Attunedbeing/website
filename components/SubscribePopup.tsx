@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 
 const STORAGE_KEY = 'subscribe_popup_dismissed';
-const DELAY_MS = 1 * 60 * 1000;
+const DELAY_MS = 2 * 60 * 1000;
 
 export const SubscribePopup: React.FC = () => {
   const [visible, setVisible] = useState(false);

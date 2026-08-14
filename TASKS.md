@@ -19,6 +19,8 @@ Claude will read this file and update it as work is completed. You can also edit
 - [x] Subscribe Netlify function + Airtable Subscribers table
 - [x] Checkbox on contact form (pre-ticked, opt-out)
 - [x] Pop-up after 2 minutes (dismisses permanently via localStorage)
+  - Was firing at 1 minute; corrected to the agreed 2 minutes
+- [x] Standalone subscribe section at bottom of page (per Enhancements Statement)
 
 ## Gallery / Instagram
 

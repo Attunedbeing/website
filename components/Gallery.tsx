@@ -179,11 +179,7 @@ export const Gallery: React.FC = () => {
 
       <div
         className="relative overflow-hidden select-none cursor-grab active:cursor-grabbing"
-        style={{
-          touchAction: 'pan-y',
-          maskImage: 'linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
-          WebkitMaskImage: 'linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
-        }}
+        style={{ touchAction: 'pan-y' }}
         onMouseEnter={() => (restingRef.current = true)}
         onMouseLeave={() => (restingRef.current = false)}
         onFocusCapture={() => (restingRef.current = true)}

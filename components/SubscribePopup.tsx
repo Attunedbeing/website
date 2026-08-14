@@ -60,7 +60,7 @@ export const SubscribePopup: React.FC = () => {
           <>
             <h3 className="font-serif text-xl text-stone-900 mb-2">Stay in the loop</h3>
             <p className="text-stone-500 text-sm mb-6">
-              New offerings, events, and updates — sent occasionally, never spammy.
+              New offerings, events, and updates - sent occasionally, never spammy.
             </p>
             <form onSubmit={handleSubmit} className="space-y-4">
               <input
@@ -72,7 +72,7 @@ export const SubscribePopup: React.FC = () => {
                 className="w-full border-b-2 border-stone-200 p-3 focus:outline-none focus:border-sage-500 transition-colors text-stone-800 text-sm"
               />
               {status === 'error' && (
-                <p className="text-red-500 text-xs">Something went wrong — please try again.</p>
+                <p className="text-red-500 text-xs">Something went wrong - please try again.</p>
               )}
               <button
                 type="submit"

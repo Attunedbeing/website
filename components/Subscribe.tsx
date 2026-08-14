@@ -25,12 +25,12 @@ export const Subscribe: React.FC = () => {
       <div className="container mx-auto px-6 max-w-2xl text-center">
         <h2 className="font-serif text-2xl md:text-3xl text-white mb-3">Stay in the loop</h2>
         <p className="text-stone-400 text-sm mb-8">
-          New offerings, events, and updates from Nala's world — sent occasionally, never spammy.
+          New offerings, events, and updates from Nala's world - sent occasionally, never spammy.
         </p>
 
         {status === 'success' ? (
           <p className="text-sage-200 text-sm">
-            Thank you — you'll hear from me when something new is happening.
+            Thank you - you'll hear from me when something new is happening.
           </p>
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 justify-center">
@@ -53,7 +53,7 @@ export const Subscribe: React.FC = () => {
         )}
 
         {status === 'error' && (
-          <p className="text-red-400 text-xs mt-3">Something went wrong — please try again.</p>
+          <p className="text-red-400 text-xs mt-3">Something went wrong - please try again.</p>
         )}
       </div>
     </section>

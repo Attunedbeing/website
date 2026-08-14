@@ -28,10 +28,10 @@ export interface Testimonial {
 }
 
 export const FALLBACK_FAQS: FAQItem[] = [
-  { id: 'f1', question: 'What should I expect from a session?', answer: 'Each session begins with a conversation to understand what you are hoping for and to establish clear consent. The massage itself is unhurried and fully clothed at first — you will be guided to undress to your comfort level. Afterwards there is time to rest and integrate before you leave.', order: 1 },
+  { id: 'f1', question: 'What should I expect from a session?', answer: 'Each session begins with a conversation to understand what you are hoping for and to establish clear consent. The massage itself is unhurried and fully clothed at first - you will be guided to undress to your comfort level. Afterwards there is time to rest and integrate before you leave.', order: 1 },
   { id: 'f2', question: 'Is this a sexual service?', answer: 'No. This is a therapeutic and somatic practice. While the work may include the full body with your explicit consent, it is not a sexual service. There is no reciprocal touch, no kissing, and no sexual acts of any kind.', order: 2 },
   { id: 'f3', question: 'Who is this work for?', answer: 'This work is open to all adults regardless of gender, body type, or background. It is particularly supportive for people experiencing stress, disconnection from their body, sexual shame, trauma, or those simply curious about somatic and tantric practices.', order: 3 },
-  { id: 'f4', question: 'How do I prepare for a session?', answer: "Arrive freshly showered if possible, avoid a heavy meal beforehand, and give yourself space afterwards — don't schedule anything demanding right after. Most importantly, come with openness and no specific agenda.", order: 4 },
+  { id: 'f4', question: 'How do I prepare for a session?', answer: "Arrive freshly showered if possible, avoid a heavy meal beforehand, and give yourself space afterwards - don't schedule anything demanding right after. Most importantly, come with openness and no specific agenda.", order: 4 },
   { id: 'f5', question: 'Is a deposit required?', answer: 'A $50 deposit is preferred to secure your booking. This can be arranged after your initial enquiry.', order: 5 },
   { id: 'f6', question: 'Where are sessions held?', answer: 'Sessions are held in a private, comfortable space designed for this work. Location details are shared after booking confirmation.', order: 6 },
 ];
@@ -43,7 +43,7 @@ export const FALLBACK_PACKAGES: PricingPackage[] = [
 ];
 
 export const FALLBACK_TESTIMONIALS: Testimonial[] = [
-  { id: 'fallback-1', name: 'S.M.', message: 'I came in feeling disconnected from my body after years of stress and chronic tension. What I experienced was unlike anything I had tried before — I left feeling like I had come home to myself.', featured: true, order: 1 },
+  { id: 'fallback-1', name: 'S.M.', message: 'I came in feeling disconnected from my body after years of stress and chronic tension. What I experienced was unlike anything I had tried before - I left feeling like I had come home to myself.', featured: true, order: 1 },
   { id: 'fallback-2', name: 'T.R.', message: 'The session was held with such care and professionalism. I felt completely safe to let go. The breathwork combined with the bodywork created a genuinely transformative experience.', featured: false, order: 2 },
   { id: 'fallback-3', name: 'J.K.', message: 'I was nervous at first, but the space created was so warm and non-judgmental. I released something I had been carrying for a very long time. I cannot recommend this work highly enough.', featured: false, order: 3 },
 ];

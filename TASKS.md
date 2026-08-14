@@ -29,7 +29,17 @@ Claude will read this file and update it as work is completed. You can also edit
   - Instagram Login route (no Facebook Page needed), Meta app ID 2045741559312901
   - Token stored in Netlify as INSTAGRAM_ACCESS_TOKEN (secret) and in local .env (gitignored)
 - [~] Connect gallery to Instagram feed
-  - Working end-to-end locally via netlify dev; goes live on next deploy (commit + push needed)
+  - Connected to Ellana's real account (token in Netlify + .env, generated 2026-08-14, expires ~2026-10-13)
+  - Verified on draft deploy; goes live when feature/instagram-gallery merges to main
+
+## Free extras (post-Enhancements goodwill, not billed)
+
+- [x] Replace em-dashes with hyphens in all site copy
+- [x] Instagram + Facebook links in footer
+  - Instagram confirmed: instagram.com/attuned.being
+- [-] Confirm Facebook page URL with Ellana (footer currently guesses facebook.com/attuned.being)
+- [-] Swap gallery placeholder photos
+  - Waiting on an email from Ellana with the new photos
 
 ## Maintenance
 

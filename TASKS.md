@@ -38,8 +38,8 @@ Claude will read this file and update it as work is completed. You can also edit
 - [x] Instagram + Facebook links in footer
   - Instagram confirmed: instagram.com/attuned.being
 - [x] Confirm Facebook page URL with Ellana (real URL now in footer)
-- [-] Swap gallery placeholder photos
-  - Waiting on an email from Ellana with the new photos
+- [x] Swap photos per Ellana's picks: hero banner (4G4A7600), bio (4G4A7340), service description (NZG 5)
+  - Gallery static fallbacks unchanged (live Instagram feed supersedes them anyway)
 
 ## Maintenance
 

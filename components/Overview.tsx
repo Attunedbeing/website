@@ -23,8 +23,8 @@ export const Overview: React.FC = () => {
             <div className="relative flex-1 min-h-[200px]">
               <div className="absolute inset-0 border border-sage-300 rounded-sm"></div>
               <img
-                src="Images/PXL_20260222_235629533.PORTRAIT_HD.jpeg"
-                alt="Massage table in a warm, inviting treatment space"
+                src="Images/NZG-5_web.jpg"
+                alt="Grounding, present touch during a bodywork session"
                 className="relative z-10 w-full h-full object-cover rounded-sm transform -translate-x-3 -translate-y-3"
               />
             </div>

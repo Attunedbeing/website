@@ -3,6 +3,7 @@ import { Quote } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useSiteData } from './SiteDataContext';
 import type { Testimonial } from './SiteDataContext';
+import { CollapsibleSection } from './CollapsibleSection';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -15,45 +16,51 @@ const itemVariants = {
 };
 
 const TestimonialsList: React.FC<{ testimonials: Testimonial[] }> = ({ testimonials }) => (
-  <section id="testimonials" className="py-24 pt-0 bg-stone-50 overflow-hidden relative">
-    <img src="Images/IMG_2675_HD.JPG" alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover opacity-[0.3] pointer-events-none hidden md:block" />
-    <div className="absolute inset-0 bg-gradient-to-b from-stone-50 via-transparent to-stone-900 pointer-events-none"></div>
-    <div className="container mx-auto px-6 max-w-6xl relative z-10">
-      <div className="text-left mb-16">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.8, ease: "easeOut" }}>
-          <h2 className="text-3xl md:text-5xl font-serif text-stone-900 mb-4">Testimonials</h2>
-          <p className="text-stone-600">Words from those who have journeyed with me.</p>
-        </motion.div>
-      </div>
-      <motion.div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }}>
-        {testimonials.map((testimonial) => (
-          <motion.div key={testimonial.id} variants={itemVariants} className="bg-white p-8 shadow-sm border border-sage-200 flex flex-col h-full hover:shadow-md transition-shadow duration-300">
-            <div className="mb-6 text-sage-300">
-              <Quote className="w-10 h-10 fill-current opacity-50" />
-            </div>
-            <p className="text-stone-600 italic mb-6 flex-grow leading-relaxed">"{testimonial.message}"</p>
-            <div className="mt-auto">
-              <p className="font-serif text-stone-900 text-lg">{testimonial.name}</p>
-            </div>
-          </motion.div>
-        ))}
+  <motion.div
+    className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+    variants={containerVariants}
+    initial="hidden"
+    whileInView="visible"
+    viewport={{ once: true, margin: "-50px" }}
+  >
+    {testimonials.map((testimonial) => (
+      <motion.div key={testimonial.id} variants={itemVariants} className="bg-white p-8 shadow-sm border border-sage-200 flex flex-col h-full hover:shadow-md transition-shadow duration-300">
+        <div className="mb-6 text-sage-300">
+          <Quote className="w-10 h-10 fill-current opacity-50" />
+        </div>
+        <p className="text-stone-600 italic mb-6 flex-grow leading-relaxed">"{testimonial.message}"</p>
+        <div className="mt-auto">
+          <p className="font-serif text-stone-900 text-lg">{testimonial.name}</p>
+        </div>
       </motion.div>
-    </div>
-  </section>
+    ))}
+  </motion.div>
 );
 
 export const Testimonials: React.FC = () => {
   const { testimonials, loading } = useSiteData();
 
-  if (loading) {
-    return (
-      <section className="py-20 bg-stone-50">
-        <div className="container mx-auto px-6 text-center">
-          <p className="text-stone-500">Loading stories...</p>
-        </div>
-      </section>
-    );
-  }
-
-  return <TestimonialsList testimonials={testimonials} />;
+  return (
+    <CollapsibleSection
+      id="testimonials"
+      title="Testimonials"
+      subtitle="Words from those who have journeyed with me."
+      sectionClassName="py-16 bg-stone-50 overflow-hidden"
+      containerClassName="max-w-6xl"
+      background={
+        <img
+          src="Images/IMG_2675_HD.JPG"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover opacity-[0.18] pointer-events-none hidden md:block"
+        />
+      }
+    >
+      {loading ? (
+        <p className="text-stone-500 text-center py-8">Loading stories...</p>
+      ) : (
+        <TestimonialsList testimonials={testimonials} />
+      )}
+    </CollapsibleSection>
+  );
 };

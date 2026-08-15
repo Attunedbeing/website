@@ -16,24 +16,78 @@ const itemVariants = {
 
 // Longer testimonials claim more of the grid: short = 1 column, medium = 2,
 // long = the full row. grid-flow-dense back-fills gaps so it tiles neatly.
-const spanClass = (message: string) => {
-  const len = message.length;
-  if (len > 320) return 'md:col-span-2 lg:col-span-3';
-  if (len > 150) return 'md:col-span-2 lg:col-span-2';
-  return '';
+// Longer testimonials claim more of the 3-column grid. Rather than fixed
+// spans (which leave ragged gaps when the mix doesn't divide evenly), cards
+// are packed into rows that each sum to exactly 3 columns: a long card gets
+// a row to itself, a medium pairs with a short, shorts run three abreast.
+// Leftovers get promoted a size so no row is ever left with a hole.
+type Span = 1 | 2 | 3;
+const desiredSpan = (len: number): Span => (len > 500 ? 3 : len > 300 ? 2 : 1);
+
+function packRows(testimonials: Testimonial[]): { testimonial: Testimonial; span: Span }[][] {
+  const ones: Testimonial[] = [];
+  const twos: Testimonial[] = [];
+  const threes: Testimonial[] = [];
+  for (const t of testimonials) {
+    const s = desiredSpan(t.message.length);
+    (s === 1 ? ones : s === 2 ? twos : threes).push(t);
+  }
+
+  const fullRows = threes.map(t => [{ testimonial: t, span: 3 as Span }]);
+  const pairRows: { testimonial: Testimonial; span: Span }[][] = [];
+  for (const t of twos) {
+    const short = ones.shift();
+    if (short) pairRows.push([{ testimonial: t, span: 2 }, { testimonial: short, span: 1 }]);
+    else fullRows.push([{ testimonial: t, span: 3 }]); // no short partner — take the row
+  }
+  const shortRows: { testimonial: Testimonial; span: Span }[][] = [];
+  while (ones.length >= 3) {
+    shortRows.push(ones.splice(0, 3).map(t => ({ testimonial: t, span: 1 as Span })));
+  }
+  if (ones.length === 2) {
+    pairRows.push([{ testimonial: ones[0], span: 2 }, { testimonial: ones[1], span: 1 }]);
+  } else if (ones.length === 1) {
+    fullRows.push([{ testimonial: ones[0], span: 3 }]);
+  }
+
+  // Interleave row types so sizes feel scattered rather than grouped
+  const rows: { testimonial: Testimonial; span: Span }[][] = [];
+  const sources = [pairRows, shortRows, fullRows];
+  let i = 0;
+  while (sources.some(s => s.length)) {
+    const src = sources[i % sources.length];
+    if (src.length) rows.push(src.shift()!);
+    i++;
+  }
+  return rows;
+}
+
+const SPAN_CLASS: Record<Span, string> = {
+  1: '',
+  2: 'md:col-span-2 lg:col-span-2',
+  3: 'md:col-span-2 lg:col-span-3',
 };
 
-const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }) => (
+const initials = (name: string) =>
+  name
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map(w => w[0].toUpperCase())
+    .join('');
+
+const TestimonialCard: React.FC<{ testimonial: Testimonial; span: Span }> = ({ testimonial, span }) => (
   <motion.div
     variants={itemVariants}
-    className={`bg-white p-8 shadow-sm border border-sage-200 flex flex-col h-full hover:shadow-md transition-shadow duration-300 ${spanClass(testimonial.message)}`}
+    className={`bg-white p-8 shadow-sm border border-sage-200 flex flex-col h-full hover:shadow-md transition-shadow duration-300 ${SPAN_CLASS[span]}`}
   >
-    <div className="mb-6 text-sage-300">
-      <Quote className="w-10 h-10 fill-current opacity-50" />
-    </div>
-    <p className="text-stone-600 italic mb-6 flex-grow leading-relaxed">"{testimonial.message}"</p>
-    <div className="mt-auto">
-      <p className="font-serif text-stone-900 text-lg">{testimonial.name}</p>
+    <Quote className="w-5 h-5 text-sage-400 fill-current mb-5 rotate-180" aria-hidden="true" />
+    <p className="text-stone-700 flex-grow leading-relaxed">{testimonial.message}</p>
+    <div className="mt-6 pt-5 border-t border-stone-200/70 flex items-center gap-3">
+      <span className="w-9 h-9 rounded-full bg-sage-100 text-sage-700 flex items-center justify-center font-serif text-sm shrink-0">
+        {initials(testimonial.name)}
+      </span>
+      <p className="font-serif text-stone-900">{testimonial.name}</p>
     </div>
   </motion.div>
 );
@@ -65,9 +119,11 @@ export const Testimonials: React.FC = () => {
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
           >
-            {testimonials.map(testimonial => (
-              <TestimonialCard key={testimonial.id} testimonial={testimonial} />
-            ))}
+            {packRows(testimonials)
+              .flat()
+              .map(({ testimonial, span }) => (
+                <TestimonialCard key={testimonial.id} testimonial={testimonial} span={span} />
+              ))}
           </motion.div>
         )}
       </div>

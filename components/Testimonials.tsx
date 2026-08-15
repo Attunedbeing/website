@@ -123,7 +123,7 @@ export const Testimonials: React.FC = () => {
         src="Images/IMG_2675_HD.JPG"
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover opacity-[0.35] pointer-events-none hidden md:block"
+        className="absolute inset-0 w-full h-full object-cover opacity-[0.35] blur-md scale-105 pointer-events-none hidden md:block"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-stone-900 via-transparent to-stone-900 pointer-events-none"></div>
       <div className="relative z-10 container mx-auto px-6 max-w-6xl">

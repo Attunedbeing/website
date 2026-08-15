@@ -56,7 +56,8 @@ Claude will read this file and update it as work is completed. You can also edit
 - [x] Testimonials background image now full-bleed across the page when open
 - [x] Gallery carousel: photos keep natural aspect ratio (fixed height, variable width)
 
-## Upgrades (paid)
+## Upgrades
 
-- [ ] Airtable response caching via Netlify Blobs — 24hr TTL, demand-driven refresh
-  - Ready to go on branch `feature/airtable-caching`, merge when agreed
+- [x] Airtable response caching via Netlify Blobs — 24hr TTL, demand-driven refresh
+  - Merged to main and live 2026-08-15; provided free of charge (note as $0 / goodwill on invoice)
+  - Blank-pricing filter from the gallery branch ported into sync-site-data.mjs

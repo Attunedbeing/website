@@ -118,21 +118,22 @@ export const Testimonials: React.FC = () => {
   }
 
   return (
-    <section id="testimonials" className="relative py-16 bg-stone-50 overflow-hidden">
+    <section id="testimonials" className="relative py-16 bg-stone-900 overflow-hidden">
       <img
         src="Images/IMG_2675_HD.JPG"
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover opacity-[0.09] pointer-events-none hidden md:block"
+        className="absolute inset-0 w-full h-full object-cover opacity-[0.35] pointer-events-none hidden md:block"
       />
+      <div className="absolute inset-0 bg-gradient-to-b from-stone-900 via-transparent to-stone-900 pointer-events-none"></div>
       <div className="relative z-10 container mx-auto px-6 max-w-6xl">
         <div className="mb-10">
-          <h2 className="text-3xl md:text-4xl font-serif text-stone-900 mb-2">Testimonials</h2>
-          <p className="text-stone-500 text-sm">Words from those who have journeyed with me.</p>
+          <h2 className="text-3xl md:text-4xl font-serif text-sage-100 mb-2">Testimonials</h2>
+          <p className="text-stone-400 text-sm">Words from those who have journeyed with me.</p>
         </div>
 
         {loading ? (
-          <p className="text-stone-500 text-center py-8">Loading stories...</p>
+          <p className="text-stone-400 text-center py-8">Loading stories...</p>
         ) : (
           <>
             <motion.div
@@ -174,7 +175,7 @@ export const Testimonials: React.FC = () => {
               <div className="text-center mt-10">
                 <button
                   onClick={() => setShowAll(s => !s)}
-                  className="inline-flex items-center gap-3 border border-sage-400 bg-white/80 px-8 py-3 text-xs uppercase tracking-[0.2em] text-sage-700 cursor-pointer transition-colors duration-300 hover:bg-sage-500 hover:border-sage-500 hover:text-white"
+                  className="inline-flex items-center gap-3 border border-sage-300 bg-transparent px-8 py-3 text-xs uppercase tracking-[0.2em] text-sage-100 cursor-pointer transition-colors duration-300 hover:bg-sage-500 hover:border-sage-500 hover:text-white"
                 >
                   {showAll ? 'Show less' : 'See more'}
                   <ChevronDown

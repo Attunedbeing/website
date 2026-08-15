@@ -1,5 +1,6 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { ChevronDown } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useSiteData } from './SiteDataContext';
 import type { Testimonial } from './SiteDataContext';
 
@@ -95,8 +96,26 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial; span: Span }> = ({ t
   </motion.div>
 );
 
+const PREVIEW_CARDS = 3;
+
 export const Testimonials: React.FC = () => {
   const { testimonials, loading } = useSiteData();
+  const [showAll, setShowAll] = useState(false);
+
+  // Split at packed-row boundaries so the preview looks identical to the
+  // top of the full grid; the extra rows live in their own animated block.
+  const rows = packRows(testimonials);
+  const previewRows: typeof rows = [];
+  const restRows: typeof rows = [];
+  let count = 0;
+  for (const row of rows) {
+    if (count < PREVIEW_CARDS) {
+      previewRows.push(row);
+      count += row.length;
+    } else {
+      restRows.push(row);
+    }
+  }
 
   return (
     <section id="testimonials" className="relative py-16 bg-stone-50 overflow-hidden">
@@ -115,19 +134,56 @@ export const Testimonials: React.FC = () => {
         {loading ? (
           <p className="text-stone-500 text-center py-8">Loading stories...</p>
         ) : (
-          <motion.div
-            className="grid md:grid-cols-2 lg:grid-cols-3 grid-flow-dense gap-6"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-          >
-            {packRows(testimonials)
-              .flat()
-              .map(({ testimonial, span }) => (
+          <>
+            <motion.div
+              className="grid md:grid-cols-2 lg:grid-cols-3 grid-flow-dense gap-6"
+              variants={containerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+            >
+              {previewRows.flat().map(({ testimonial, span }) => (
                 <TestimonialCard key={testimonial.id} testimonial={testimonial} span={span} />
               ))}
-          </motion.div>
+            </motion.div>
+
+            <AnimatePresence initial={false}>
+              {showAll && restRows.length > 0 && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.4, ease: 'easeInOut' }}
+                  className="overflow-hidden"
+                >
+                  <motion.div
+                    className="grid md:grid-cols-2 lg:grid-cols-3 grid-flow-dense gap-6 pt-6"
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate="visible"
+                  >
+                    {restRows.flat().map(({ testimonial, span }) => (
+                      <TestimonialCard key={testimonial.id} testimonial={testimonial} span={span} />
+                    ))}
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {restRows.length > 0 && (
+              <div className="text-center mt-10">
+                <button
+                  onClick={() => setShowAll(s => !s)}
+                  className="inline-flex items-center gap-3 border border-sage-400 bg-white/80 px-8 py-3 text-xs uppercase tracking-[0.2em] text-sage-700 cursor-pointer transition-colors duration-300 hover:bg-sage-500 hover:border-sage-500 hover:text-white"
+                >
+                  {showAll ? 'Show less' : 'See more'}
+                  <ChevronDown
+                    className={`w-4 h-4 transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`}
+                  />
+                </button>
+              </div>
+            )}
+          </>
         )}
       </div>
     </section>

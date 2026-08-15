@@ -32,7 +32,7 @@ export const Hero: React.FC = () => {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="#contact"
+            href="#pricing"
             className="bg-sage-500 hover:bg-sage-400 text-white px-8 py-3 uppercase tracking-widest text-sm transition-all duration-300 border border-sage-500"
           >
             Session Options

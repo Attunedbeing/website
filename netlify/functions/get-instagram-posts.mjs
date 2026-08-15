@@ -1,11 +1,25 @@
-// Requires one environment variable in Netlify:
-//   INSTAGRAM_ACCESS_TOKEN — long-lived Instagram Login token (valid 60 days)
+// Token sourcing:
+//   1. Netlify Blobs (store "instagram", key "token") — kept fresh by the
+//      scheduled refresh-instagram-token function
+//   2. INSTAGRAM_ACCESS_TOKEN env var — seed / local-dev fallback
+
+import { getStore } from "@netlify/blobs";
 
 const FIELDS = "id,caption,media_type,media_url,permalink,timestamp";
 const API_VERSION = "v22.0";
 
+async function getToken() {
+  try {
+    const stored = await getStore("instagram").get("token", { type: "json" });
+    if (stored?.token) return stored.token;
+  } catch {
+    // Blobs unavailable (e.g. plain local dev) — fall through to env var
+  }
+  return process.env.INSTAGRAM_ACCESS_TOKEN;
+}
+
 export default async () => {
-  const token = process.env.INSTAGRAM_ACCESS_TOKEN;
+  const token = await getToken();
 
   if (!token) {
     return new Response(JSON.stringify({ error: "Instagram not configured" }), {

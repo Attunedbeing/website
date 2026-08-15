@@ -27,9 +27,9 @@ const STATIC_PHOTOS: GalleryPost[] = [
   { id: 's8', imageUrl: 'Images/PXL_20260222_235629533.PORTRAIT_HD.jpeg', caption: '' },
 ];
 
-const CARD_WIDTH = 300;
 const CARD_HEIGHT = 380;
 const CARD_GAP = 14;
+const EST_CARD_WIDTH = 300; // layout estimate until the real set width is measured
 const DRIFT_SPEED = 30; // px per second while idle
 
 const wrap = (min: number, max: number, v: number) => {
@@ -104,14 +104,28 @@ export const Gallery: React.FC = () => {
       .catch(() => {});
   }, []);
 
-  const stride = CARD_WIDTH + CARD_GAP;
-  const setWidth = posts.length * stride;
+  // Cards keep each photo's natural aspect ratio, so the width of one full
+  // set of posts is only known once rendered — measure it from the first copy.
+  const [setWidth, setSetWidth] = useState(posts.length * (EST_CARD_WIDTH + CARD_GAP));
+  const firstSetRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = firstSetRef.current;
+    if (!el) return;
+    const measure = () => {
+      const w = el.scrollWidth;
+      if (w > 0) setSetWidth(w + CARD_GAP);
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [posts]);
 
   // Enough copies of the post set to cover any viewport, so the loop is seamless
   const [copies, setCopies] = useState(2);
   useEffect(() => {
     const update = () =>
-      setCopies(Math.max(2, Math.ceil((window.innerWidth + CARD_WIDTH) / setWidth) + 1));
+      setCopies(Math.max(2, Math.ceil((window.innerWidth + EST_CARD_WIDTH) / setWidth) + 1));
     update();
     window.addEventListener('resize', update);
     return () => window.removeEventListener('resize', update);
@@ -190,32 +204,39 @@ export const Gallery: React.FC = () => {
         onPointerCancel={endDrag}
       >
         <motion.div className="flex py-2" style={{ x, gap: CARD_GAP, width: 'max-content' }}>
-          {Array.from({ length: copies }).map((_, c) =>
-            posts.map(post => (
-              <button
-                key={`${c}-${post.id}`}
-                onClick={() => openPost(post)}
-                className="group relative shrink-0 overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-sage-500"
-                style={{ width: CARD_WIDTH, height: CARD_HEIGHT }}
-                tabIndex={c === 0 ? 0 : -1}
-                aria-hidden={c > 0 || undefined}
-              >
-                <img
-                  src={post.imageUrl}
-                  alt=""
-                  draggable={false}
-                  loading="lazy"
-                  className="w-full h-full object-cover saturate-[0.92] transition-all duration-700 ease-out group-hover:scale-[1.04] group-hover:saturate-100"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-stone-900/70 via-stone-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                {post.caption && (
-                  <p className="absolute bottom-0 left-0 right-0 p-5 text-left text-white/90 text-sm leading-snug line-clamp-2 translate-y-3 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                    {post.caption}
-                  </p>
-                )}
-              </button>
-            ))
-          )}
+          {Array.from({ length: copies }).map((_, c) => (
+            <div
+              key={c}
+              ref={c === 0 ? firstSetRef : undefined}
+              className="flex shrink-0"
+              style={{ gap: CARD_GAP }}
+            >
+              {posts.map(post => (
+                <button
+                  key={`${c}-${post.id}`}
+                  onClick={() => openPost(post)}
+                  className="group relative shrink-0 overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-sage-500"
+                  style={{ height: CARD_HEIGHT }}
+                  tabIndex={c === 0 ? 0 : -1}
+                  aria-hidden={c > 0 || undefined}
+                >
+                  <img
+                    src={post.imageUrl}
+                    alt=""
+                    draggable={false}
+                    loading="lazy"
+                    className="h-full w-auto max-w-none saturate-[0.92] transition-all duration-700 ease-out group-hover:scale-[1.04] group-hover:saturate-100"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-stone-900/70 via-stone-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  {post.caption && (
+                    <p className="absolute bottom-0 left-0 right-0 p-5 text-left text-white/90 text-sm leading-snug line-clamp-2 translate-y-3 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
+                      {post.caption}
+                    </p>
+                  )}
+                </button>
+              ))}
+            </div>
+          ))}
         </motion.div>
       </div>
 

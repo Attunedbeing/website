@@ -43,8 +43,18 @@ Claude will read this file and update it as work is completed. You can also edit
 
 ## Maintenance
 
-- [ ] Scheduled Netlify Function to auto-refresh Instagram access token (expires every 60 days)
-  - Current token generated 2026-08-14, expires ~2026-10-13
+- [x] Scheduled Netlify Function to auto-refresh Instagram access token (expires every 60 days)
+  - `refresh-instagram-token.mjs` runs weekly (Mon 03:00 UTC), stores rolling token in Netlify Blobs
+  - `get-instagram-posts.mjs` reads Blobs token first, INSTAGRAM_ACCESS_TOKEN env var is seed/fallback
+  - Goes live when feature/instagram-gallery merges; if the site is ever paused >60 days a fresh
+    token must be generated manually and saved to the env var (delete the blob so it reseeds)
+
+## Design polish (2026-08-15 feedback)
+
+- [x] Collapsible sections (FAQ/Testimonials): obvious open/close affordance
+  - Circled chevron + "Open/Close" label, hover states on header and FAQ rows
+- [x] Testimonials background image now full-bleed across the page when open
+- [x] Gallery carousel: photos keep natural aspect ratio (fixed height, variable width)
 
 ## Upgrades (paid)
 

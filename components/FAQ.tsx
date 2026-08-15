@@ -22,13 +22,14 @@ export const FAQ: React.FC = () => {
           <div key={faq.id}>
             <button
               onClick={() => toggle(faq.id)}
-              className="w-full flex items-center justify-between py-5 text-left gap-6 group"
+              aria-expanded={open === faq.id}
+              className="w-full flex items-center justify-between py-5 text-left gap-6 group cursor-pointer px-3 -mx-3 rounded transition-colors duration-200 hover:bg-stone-100/70"
             >
-              <span className="text-stone-800 text-sm font-medium group-hover:text-stone-900 transition-colors">
+              <span className="text-stone-800 text-base font-medium group-hover:text-stone-900 transition-colors">
                 {faq.question}
               </span>
               <ChevronDown
-                className={`w-4 h-4 text-sage-500 shrink-0 transition-transform duration-300 ${open === faq.id ? 'rotate-180' : ''}`}
+                className={`w-5 h-5 text-sage-500 shrink-0 transition-transform duration-300 ${open === faq.id ? 'rotate-180' : ''}`}
               />
             </button>
             <div

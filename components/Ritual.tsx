@@ -33,7 +33,7 @@ export const Ritual: React.FC = () => {
       />
       <div className="absolute inset-0 bg-gradient-to-b from-stone-900 via-transparent to-stone-900 pointer-events-none"></div>
 
-      <div className="container mx-auto px-6 max-w-5xl relative z-10">
+      <div className="container mx-auto px-6 max-w-6xl relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-serif text-sage-100 mb-4">The Ritual</h2>
           <p className="text-stone-400 max-w-xl mx-auto">Every session is a unique ritual, co‑created to honour your comfort, your desires, and your boundaries.</p>

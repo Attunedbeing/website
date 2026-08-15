@@ -15,7 +15,7 @@ export const FAQ: React.FC = () => {
       title="Frequently Asked Questions"
       subtitle="Answers to some common questions before you reach out."
       sectionClassName="py-16 bg-stone-50"
-      containerClassName="max-w-3xl"
+      containerClassName="max-w-6xl"
     >
       <div className="divide-y divide-stone-200">
         {faqs.map(faq => (
@@ -35,7 +35,7 @@ export const FAQ: React.FC = () => {
             <div
               className={`overflow-hidden transition-all duration-300 ease-in-out ${open === faq.id ? 'max-h-96 pb-5' : 'max-h-0'}`}
             >
-              <p className="text-stone-500 text-sm leading-relaxed">{faq.answer}</p>
+              <p className="text-stone-500 text-sm leading-relaxed max-w-4xl">{faq.answer}</p>
             </div>
           </div>
         ))}

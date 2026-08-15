@@ -23,7 +23,7 @@ export const FAQ: React.FC = () => {
             <button
               onClick={() => toggle(faq.id)}
               aria-expanded={open === faq.id}
-              className="w-full flex items-center justify-between py-5 text-left gap-6 group cursor-pointer px-3 -mx-3 rounded transition-colors duration-200 hover:bg-stone-100/70"
+              className="w-full flex items-center justify-between py-5 text-left gap-6 group cursor-pointer"
             >
               <span className="text-stone-800 text-base font-medium group-hover:text-stone-900 transition-colors">
                 {faq.question}

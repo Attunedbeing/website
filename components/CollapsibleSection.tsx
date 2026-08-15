@@ -44,7 +44,7 @@ export const CollapsibleSection: React.FC<CollapsibleSectionProps> = ({
           onClick={() => setOpen(o => !o)}
           aria-expanded={open}
           aria-controls={contentId}
-          className="w-full flex items-center justify-between gap-6 text-left group cursor-pointer rounded-lg -m-3 p-3 transition-colors duration-300 hover:bg-stone-100/70"
+          className="w-full flex items-center justify-between gap-6 text-left group cursor-pointer"
         >
           <div>
             <h2 className="text-3xl md:text-4xl font-serif text-stone-900 mb-2 group-hover:text-stone-700 transition-colors">

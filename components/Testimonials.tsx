@@ -120,7 +120,7 @@ export const Testimonials: React.FC = () => {
   return (
     <section id="testimonials" className="relative py-16 bg-stone-900 overflow-hidden">
       <img
-        src="Images/IMG_2675_HD.JPG"
+        src="Images/IMG_2675.webp"
         alt=""
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover opacity-[0.35] blur-md scale-105 pointer-events-none hidden md:block"

@@ -17,14 +17,14 @@ interface GalleryPost {
 }
 
 const STATIC_PHOTOS: GalleryPost[] = [
-  { id: 's1', imageUrl: 'Images/Nala-10.jpg', caption: '' },
-  { id: 's2', imageUrl: 'Images/Nala-6.JPEG', caption: '' },
-  { id: 's3', imageUrl: 'Images/Nala-8.JPEG', caption: '' },
-  { id: 's4', imageUrl: 'Images/IMG_2673.jpg', caption: '' },
-  { id: 's5', imageUrl: 'Images/IMG_2675_HD.JPG', caption: '' },
-  { id: 's6', imageUrl: 'Images/IMG_2724_HD.jpeg', caption: '' },
-  { id: 's7', imageUrl: 'Images/PXL_20260222_233928026~2_HD.jpeg', caption: '' },
-  { id: 's8', imageUrl: 'Images/PXL_20260222_235629533.PORTRAIT_HD.jpeg', caption: '' },
+  { id: 's1', imageUrl: 'Images/Nala-10.webp', caption: '' },
+  { id: 's2', imageUrl: 'Images/Nala-6.webp', caption: '' },
+  { id: 's3', imageUrl: 'Images/Nala-8.webp', caption: '' },
+  { id: 's4', imageUrl: 'Images/IMG_2673.webp', caption: '' },
+  { id: 's5', imageUrl: 'Images/IMG_2675.webp', caption: '' },
+  { id: 's6', imageUrl: 'Images/IMG_2724.webp', caption: '' },
+  { id: 's7', imageUrl: 'Images/PXL_233928026.webp', caption: '' },
+  { id: 's8', imageUrl: 'Images/PXL_235629533.webp', caption: '' },
 ];
 
 const CARD_HEIGHT = 380;

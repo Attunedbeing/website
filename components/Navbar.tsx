@@ -14,10 +14,11 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
+    // Covers both the Overview and The Ritual sections (Ritual sits directly below)
     { name: 'Overview', href: '#overview' },
-    { name: 'The Ritual', href: '#ritual' },
     { name: 'Services', href: '#services' },
     { name: 'About', href: '#about' },
+    { name: 'Testimonials', href: '#testimonials' },
     { name: 'FAQ', href: '#faq' },
     { name: 'Pricing', href: '#pricing' },
     { name: 'Contact', href: '#contact' },

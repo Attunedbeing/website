@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
-import { ChevronDown, Quote } from 'lucide-react';
+import React from 'react';
+import { Quote } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useSiteData } from './SiteDataContext';
 import type { Testimonial } from './SiteDataContext';
-
-const PREVIEW_COUNT = 3;
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -42,10 +40,6 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }
 
 export const Testimonials: React.FC = () => {
   const { testimonials, loading } = useSiteData();
-  const [showAll, setShowAll] = useState(false);
-
-  const visible = showAll ? testimonials : testimonials.slice(0, PREVIEW_COUNT);
-  const hasMore = testimonials.length > PREVIEW_COUNT;
 
   return (
     <section id="testimonials" className="relative py-16 bg-stone-50 overflow-hidden">
@@ -64,33 +58,17 @@ export const Testimonials: React.FC = () => {
         {loading ? (
           <p className="text-stone-500 text-center py-8">Loading stories...</p>
         ) : (
-          <>
-            <motion.div
-              className="grid md:grid-cols-2 lg:grid-cols-3 grid-flow-dense gap-8"
-              variants={containerVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
-            >
-              {visible.map(testimonial => (
-                <TestimonialCard key={testimonial.id} testimonial={testimonial} />
-              ))}
-            </motion.div>
-
-            {hasMore && (
-              <div className="text-center mt-12">
-                <button
-                  onClick={() => setShowAll(s => !s)}
-                  className="inline-flex items-center gap-3 border border-sage-400 bg-white/80 px-8 py-3 text-xs uppercase tracking-[0.2em] text-sage-700 cursor-pointer transition-colors duration-300 hover:bg-sage-500 hover:border-sage-500 hover:text-white"
-                >
-                  {showAll ? 'Show less' : 'See more'}
-                  <ChevronDown
-                    className={`w-4 h-4 transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`}
-                  />
-                </button>
-              </div>
-            )}
-          </>
+          <motion.div
+            className="grid md:grid-cols-2 lg:grid-cols-3 grid-flow-dense gap-8"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+          >
+            {testimonials.map(testimonial => (
+              <TestimonialCard key={testimonial.id} testimonial={testimonial} />
+            ))}
+          </motion.div>
         )}
       </div>
     </section>

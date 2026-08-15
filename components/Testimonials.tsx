@@ -1,5 +1,4 @@
 import React from 'react';
-import { Quote } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useSiteData } from './SiteDataContext';
 import type { Testimonial } from './SiteDataContext';
@@ -79,15 +78,19 @@ const initials = (name: string) =>
 const TestimonialCard: React.FC<{ testimonial: Testimonial; span: Span }> = ({ testimonial, span }) => (
   <motion.div
     variants={itemVariants}
-    className={`bg-white p-8 shadow-sm border border-sage-200 flex flex-col h-full hover:shadow-md transition-shadow duration-300 ${SPAN_CLASS[span]}`}
+    className={`bg-white p-6 shadow-sm border border-sage-200 flex flex-col h-full hover:shadow-md transition-shadow duration-300 ${SPAN_CLASS[span]}`}
   >
-    <Quote className="w-5 h-5 text-sage-400 fill-current mb-5 rotate-180" aria-hidden="true" />
-    <p className="text-stone-700 flex-grow leading-relaxed">{testimonial.message}</p>
-    <div className="mt-6 pt-5 border-t border-stone-200/70 flex items-center gap-3">
-      <span className="w-9 h-9 rounded-full bg-sage-100 text-sage-700 flex items-center justify-center font-serif text-sm shrink-0">
+    <p className="text-stone-700 flex-grow leading-relaxed">
+      <span aria-hidden="true" className="font-serif text-4xl leading-none text-sage-400 mr-1.5 align-[-0.35em] select-none">
+        &ldquo;
+      </span>
+      {testimonial.message}
+    </p>
+    <div className="mt-5 pt-4 border-t border-stone-200 flex items-center gap-3">
+      <span className="w-8 h-8 rounded-full bg-sage-100 border border-sage-200 text-sage-700 flex items-center justify-center font-serif text-xs shrink-0">
         {initials(testimonial.name)}
       </span>
-      <p className="font-serif text-stone-900">{testimonial.name}</p>
+      <p className="font-serif text-stone-800">{testimonial.name}</p>
     </div>
   </motion.div>
 );
@@ -101,7 +104,7 @@ export const Testimonials: React.FC = () => {
         src="Images/IMG_2675_HD.JPG"
         alt=""
         aria-hidden="true"
-        className="absolute inset-0 w-full h-full object-cover opacity-[0.18] pointer-events-none hidden md:block"
+        className="absolute inset-0 w-full h-full object-cover opacity-[0.09] pointer-events-none hidden md:block"
       />
       <div className="relative z-10 container mx-auto px-6 max-w-6xl">
         <div className="mb-10">
@@ -113,7 +116,7 @@ export const Testimonials: React.FC = () => {
           <p className="text-stone-500 text-center py-8">Loading stories...</p>
         ) : (
           <motion.div
-            className="grid md:grid-cols-2 lg:grid-cols-3 grid-flow-dense gap-8"
+            className="grid md:grid-cols-2 lg:grid-cols-3 grid-flow-dense gap-6"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"

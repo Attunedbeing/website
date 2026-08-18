@@ -46,7 +46,7 @@ export async function fetchAndTransform(apiKey) {
           features: (r.fields["Features"] ?? "").split("\n").filter(f => f.trim() !== ""),
           order: r.fields["Order"] ?? 0,
           active: r.fields["Active"] === true,
-        })) ?? null
+        })).filter(p => p.name.trim() !== "" || String(p.price).trim() !== "") ?? null
       : null,
     testimonials: testimonialsResult.status === "fulfilled"
       ? testimonialsResult.value.records?.map(r => ({

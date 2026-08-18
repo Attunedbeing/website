@@ -55,7 +55,7 @@ export const AgeVerification: React.FC<Props> = ({ children }) => {
                 onClick={handleConfirm}
                 className="px-10 py-3 bg-sage-500 text-white text-xs uppercase tracking-widest hover:bg-sage-400 transition-colors"
               >
-                I am 18 or older — Enter
+                I am 18 or older - Enter
               </button>
               <button
                 onClick={handleDecline}

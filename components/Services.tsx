@@ -18,7 +18,7 @@ export const Services: React.FC = () => {
 
   return (
     <section id="services" className="py-20 bg-stone-25">
-      <div className="container mx-auto px-6 max-w-5xl">
+      <div className="container mx-auto px-6 max-w-6xl">
 
         <div className="grid md:grid-cols-2 gap-12 mb-20">
           {/* Offered */}

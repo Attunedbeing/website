@@ -27,8 +27,8 @@ export const About: React.FC = () => {
             {/* Image Frame */}
             <div className="absolute inset-0 border-2 border-sage-500 transform translate-x-4 translate-y-4"></div>
             <img
-              src="Images/PXL_20260222_233928026~2_HD.jpeg"
-              alt="Practitioner Portrait"
+              src="Images/4G4A7340.webp"
+              alt="Nala in golden light among tall grasses"
               className="relative z-10 w-full h-full object-cover"
             />
           </div>

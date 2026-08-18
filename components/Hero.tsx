@@ -7,9 +7,8 @@ export const Hero: React.FC = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/Images/Nala-10.JPEG"
-          /* https://images.unsplash.com/photo-1553955023-75b1347c6c0f?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D */
-          alt="Serene massage setting with flowers"
+          src="/Images/4G4A7600.webp"
+          alt="Unhurried, grounding bodywork in warm natural light"
           className="w-full h-full object-cover"
         />
         {/* Dark overlay for text readability */}
@@ -29,11 +28,11 @@ export const Hero: React.FC = () => {
           Based in Ōtepoti, Dunedin
         </span>
         <p className="text-lg md:text-xl text-stone-200 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
-          Sensual, therapeutic bodywork for all bodies and genders, based in Ōtepoti Dunedin. A trauma-aware practice of worship and devotion — supporting nervous system regulation, embodiment, and a deeper relationship with pleasure and self.
+          Sensual, therapeutic bodywork for all bodies and genders, based in Ōtepoti Dunedin. A trauma-aware practice of worship and devotion - supporting nervous system regulation, embodiment, and a deeper relationship with pleasure and self.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="#contact"
+            href="#pricing"
             className="bg-sage-500 hover:bg-sage-400 text-white px-8 py-3 uppercase tracking-widest text-sm transition-all duration-300 border border-sage-500"
           >
             Session Options

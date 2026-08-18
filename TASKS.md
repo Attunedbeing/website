@@ -19,15 +19,45 @@ Claude will read this file and update it as work is completed. You can also edit
 - [x] Subscribe Netlify function + Airtable Subscribers table
 - [x] Checkbox on contact form (pre-ticked, opt-out)
 - [x] Pop-up after 2 minutes (dismisses permanently via localStorage)
+  - Was firing at 1 minute; corrected to the agreed 2 minutes
+- [x] Standalone subscribe section at bottom of page (per Enhancements Statement)
 
 ## Gallery / Instagram
 
-- [ ] Gallery component — static version with placeholder images
-- [-] Instagram Netlify function
-  - Needs: Nala to create Instagram Business/Creator account, link to a Facebook Page, create a Meta Developer App, and generate a long-lived access token
-- [-] Connect gallery to Instagram feed
-  - Needs: Instagram Netlify function to be done first
+- [x] Gallery component — static version with placeholder images
+- [x] Instagram Netlify function
+  - Instagram Login route (no Facebook Page needed), Meta app ID 2045741559312901
+  - Token stored in Netlify as INSTAGRAM_ACCESS_TOKEN (secret) and in local .env (gitignored)
+- [~] Connect gallery to Instagram feed
+  - Connected to Ellana's real account (token in Netlify + .env, generated 2026-08-14, expires ~2026-10-13)
+  - Verified on draft deploy; goes live when feature/instagram-gallery merges to main
+
+## Free extras (post-Enhancements goodwill, not billed)
+
+- [x] Replace em-dashes with hyphens in all site copy
+- [x] Instagram + Facebook links in footer
+  - Instagram confirmed: instagram.com/attuned.being
+- [x] Confirm Facebook page URL with Ellana (real URL now in footer)
+- [x] Swap photos per Ellana's picks: hero banner (4G4A7600), bio (4G4A7340), service description (NZG 5)
+  - Gallery static fallbacks unchanged (live Instagram feed supersedes them anyway)
 
 ## Maintenance
 
-- [ ] Scheduled Netlify Function to auto-refresh Instagram access token (expires every 60 days)
+- [x] Scheduled Netlify Function to auto-refresh Instagram access token (expires every 60 days)
+  - `refresh-instagram-token.mjs` runs weekly (Mon 03:00 UTC), stores rolling token in Netlify Blobs
+  - `get-instagram-posts.mjs` reads Blobs token first, INSTAGRAM_ACCESS_TOKEN env var is seed/fallback
+  - Goes live when feature/instagram-gallery merges; if the site is ever paused >60 days a fresh
+    token must be generated manually and saved to the env var (delete the blob so it reseeds)
+
+## Design polish (2026-08-15 feedback)
+
+- [x] Collapsible sections (FAQ/Testimonials): obvious open/close affordance
+  - Circled chevron + "Open/Close" label, hover states on header and FAQ rows
+- [x] Testimonials background image now full-bleed across the page when open
+- [x] Gallery carousel: photos keep natural aspect ratio (fixed height, variable width)
+
+## Upgrades
+
+- [x] Airtable response caching via Netlify Blobs — 24hr TTL, demand-driven refresh
+  - Merged to main and live 2026-08-15; provided free of charge (note as $0 / goodwill on invoice)
+  - Blank-pricing filter from the gallery branch ported into sync-site-data.mjs

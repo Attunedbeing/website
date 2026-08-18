@@ -28,9 +28,9 @@ Claude will read this file and update it as work is completed. You can also edit
 - [x] Instagram Netlify function
   - Instagram Login route (no Facebook Page needed), Meta app ID 2045741559312901
   - Token stored in Netlify as INSTAGRAM_ACCESS_TOKEN (secret) and in local .env (gitignored)
-- [~] Connect gallery to Instagram feed
+- [x] Connect gallery to Instagram feed
   - Connected to Ellana's real account (token in Netlify + .env, generated 2026-08-14, expires ~2026-10-13)
-  - Verified on draft deploy; goes live when feature/instagram-gallery merges to main
+  - Live in production: feature/instagram-gallery merged to main 2026-08-18
 
 ## Free extras (post-Enhancements goodwill, not billed)
 

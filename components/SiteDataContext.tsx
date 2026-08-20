@@ -48,11 +48,20 @@ export const FALLBACK_TESTIMONIALS: Testimonial[] = [
   { id: 'fallback-3', name: 'J.K.', message: 'I was nervous at first, but the space created was so warm and non-judgmental. I released something I had been carrying for a very long time. I cannot recommend this work highly enough.', featured: false, order: 3 },
 ];
 
+export const GENERAL_ENQUIRY = 'General Enquiry';
+
+/** Label used both for the contact form options and the Book buttons. */
+export const packageLabel = (pkg: PricingPackage) =>
+  `${pkg.name} - ${pkg.price} (${pkg.duration})`;
+
 interface SiteData {
   faqs: FAQItem[];
   packages: PricingPackage[];
   testimonials: Testimonial[];
   loading: boolean;
+  /** Currently selected "Interested Service" in the contact form. */
+  interest: string;
+  setInterest: (value: string) => void;
 }
 
 const SiteDataContext = createContext<SiteData>({
@@ -60,17 +69,20 @@ const SiteDataContext = createContext<SiteData>({
   packages: FALLBACK_PACKAGES,
   testimonials: FALLBACK_TESTIMONIALS,
   loading: true,
+  interest: GENERAL_ENQUIRY,
+  setInterest: () => {},
 });
 
 export const useSiteData = () => useContext(SiteDataContext);
 
 export const SiteDataProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [data, setData] = useState<SiteData>({
+  const [data, setData] = useState({
     faqs: FALLBACK_FAQS,
     packages: FALLBACK_PACKAGES,
     testimonials: FALLBACK_TESTIMONIALS,
     loading: true,
   });
+  const [interest, setInterest] = useState(GENERAL_ENQUIRY);
 
   useEffect(() => {
     fetch('/api/site-data')
@@ -88,5 +100,9 @@ export const SiteDataProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       });
   }, []);
 
-  return <SiteDataContext.Provider value={data}>{children}</SiteDataContext.Provider>;
+  return (
+    <SiteDataContext.Provider value={{ ...data, interest, setInterest }}>
+      {children}
+    </SiteDataContext.Provider>
+  );
 };

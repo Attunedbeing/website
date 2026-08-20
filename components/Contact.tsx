@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Send } from 'lucide-react';
+import { GENERAL_ENQUIRY, packageLabel, useSiteData } from './SiteDataContext';
 
 export const Contact: React.FC = () => {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [subscribe, setSubscribe] = useState(true);
+  const { packages, interest, setInterest } = useSiteData();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -95,13 +97,16 @@ export const Contact: React.FC = () => {
                 <select
                   id="interest"
                   name="interest"
+                  value={interest}
+                  onChange={e => setInterest(e.target.value)}
                   className="w-full bg-stone-25 border-b-2 border-stone-200 p-3 focus:outline-none focus:border-sage-500 transition-colors text-stone-800"
                 >
-                  <option>Taster: 60 Minutes (Unavailable)</option>
-                  <option>Indulgence: 90 Minutes</option>
-                  <option>Immersion: 2 Hours</option>
-                  <option>General Enquiry</option>
-                  <option>Meet & Greet</option>
+                  <option value={GENERAL_ENQUIRY}>{GENERAL_ENQUIRY}</option>
+                  {packages.map(pkg => (
+                    <option key={pkg.id} value={packageLabel(pkg)} disabled={!pkg.active}>
+                      {packageLabel(pkg)}{!pkg.active ? ' - Unavailable' : ''}
+                    </option>
+                  ))}
                 </select>
               </div>
 

@@ -1,8 +1,8 @@
 import React from 'react';
-import { useSiteData } from './SiteDataContext';
+import { packageLabel, useSiteData } from './SiteDataContext';
 
 export const Pricing: React.FC = () => {
-  const { packages, loading } = useSiteData();
+  const { packages, loading, setInterest } = useSiteData();
 
   if (loading) {
     return (
@@ -63,7 +63,7 @@ export const Pricing: React.FC = () => {
                     Not available
                   </a>
                 ) : (
-                  <a href="#contact" className={`block w-full text-center py-3 uppercase tracking-widest text-xs transition-colors ${pkg.featured
+                  <a href="#contact" onClick={() => setInterest(packageLabel(pkg))} className={`block w-full text-center py-3 uppercase tracking-widest text-xs transition-colors ${pkg.featured
                     ? 'bg-sage-500 text-white hover:bg-sage-400'
                     : 'border border-stone-600 text-stone-300 hover:border-sage-500 hover:text-white'
                     }`}>

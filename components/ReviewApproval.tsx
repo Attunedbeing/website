@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 
 // Review-site approval bar. Only renders on non-production hosts (branch
 // previews, draft deploys), so the live site never shows it. Approving
-// notifies Smooth Landings HQ and triggers the invoice flow.
+// notifies Smooth Landings HQ (via a server-side function that holds the
+// approval token) and triggers the invoice flow.
 
-const APPROVAL_ENDPOINT = 'https://www.smooth-landings.com/api/client-approval';
-const APPROVAL_TOKEN = 'recQcxOQXbLDMaPRY.b5132f9c7efb8c77aab04eaeffae951d';
+const APPROVAL_ENDPOINT = '/api/approve-review';
 
 const isProduction = () => {
   const h = window.location.hostname;
@@ -31,7 +31,7 @@ export const ReviewApproval: React.FC = () => {
       const res = await fetch(APPROVAL_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ token: APPROVAL_TOKEN, comment: comment || undefined }),
+        body: JSON.stringify({ comment: comment || undefined }),
       });
       if (!res.ok) throw new Error(String(res.status));
       setState('done');

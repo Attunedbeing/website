@@ -3,6 +3,7 @@ import { Award } from 'lucide-react';
 
 export const About: React.FC = () => {
   const certifications = [
+    { year: "2026", title: "Sexological Bodywork - Current Student", org: "Institute of Somatic Sexology" },
     { year: "2026", title: "ISTA Spiritual Sexual Shamanic Experience Level 1", org: "International School of Temple Arts" },
     { year: "2026", title: "Professional Disability Awareness Training", org: "Touching Base" },
     { year: "2025", title: "Sacred Touch Immersion", org: "Sacred Being" },

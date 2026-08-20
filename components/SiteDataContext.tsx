@@ -51,8 +51,7 @@ export const FALLBACK_TESTIMONIALS: Testimonial[] = [
 export const GENERAL_ENQUIRY = 'General Enquiry';
 
 /** Label used both for the contact form options and the Book buttons. */
-export const packageLabel = (pkg: PricingPackage) =>
-  `${pkg.name} - ${pkg.price} (${pkg.duration})`;
+export const packageLabel = (pkg: PricingPackage) => pkg.name;
 
 interface SiteData {
   faqs: FAQItem[];

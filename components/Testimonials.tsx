@@ -82,7 +82,11 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial; span: Span }> = ({ t
     className={`bg-white p-6 shadow-sm border border-sage-200 flex flex-col h-full hover:shadow-md transition-shadow duration-300 ${SPAN_CLASS[span]}`}
   >
     <p className="text-stone-700 flex-grow leading-relaxed">
-      <span aria-hidden="true" className="font-serif text-4xl leading-none text-sage-400 mr-1.5 align-[-0.35em] select-none">
+      <span
+        aria-hidden="true"
+        className="font-serif text-4xl text-sage-400 mr-1.5 align-[-0.35em] select-none"
+        style={{ lineHeight: 0 }}
+      >
         &ldquo;
       </span>
       {testimonial.message}

@@ -48,7 +48,7 @@ export const Contact: React.FC = () => {
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-serif text-stone-900 mb-4">Begin Your Journey</h2>
             <p className="text-stone-600">
-              If you feel called to this work, please reach out below. I will respond to your enquiry shortly.
+              If you feel called to this work, please reach out below. I will respond to your enquiry shortly. If you don't hear from me within a few days, please check your spam - my responses often land there.
             </p>
           </div>
 

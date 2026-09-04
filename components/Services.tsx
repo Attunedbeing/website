@@ -3,10 +3,10 @@ import { CheckCircle2, XCircle, Shield, Lock, Leaf, Handshake } from 'lucide-rea
 
 export const Services: React.FC = () => {
   const offered = [
-    "Full\u2011body massage, including genitals (with your clear consent)",
-    "Prostate massage (if desired and agreed)",
+    "Full\u2011body massage, including genitals",
+    "Prostate massage",
     "Energetic connection and presence",
-    "Cuddles and soothing touch (if wanted)"
+    "Cuddles and soothing touch"
   ];
 
   const notOffered = [
@@ -25,7 +25,7 @@ export const Services: React.FC = () => {
           <div>
             <h3 className="text-2xl font-serif text-stone-800 mb-6 flex items-center gap-3">
               <span className="w-8 h-0.5 bg-sage-500"></span>
-              I welcome all bodies and genders into this work, and am available for:
+              I am available for:
             </h3>
             <ul className="space-y-4">
               {offered.map((item, idx) => (

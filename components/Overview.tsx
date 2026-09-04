@@ -7,7 +7,7 @@ export const Overview: React.FC = () => {
     { icon: <Sun className="w-5 h-5" />, title: "Experience non-goal-oriented pleasure", desc: "Discover pleasure without pressure or performance, making room for presence, connection, and expanded states of bliss." },
     { icon: <Heart className="w-5 h-5" />, title: "Deepen your capacity to feel", desc: "Gently broaden your ability to experience a wider range of sensations and emotions. We can slowly reawaken senses that may have been dulled by stress through the mindful use of breath, sound, and movement." },
     { icon: <Eye className="w-5 h-5" />, title: "Cultivate self-attunement", desc: "Grow a clearer awareness and understanding of your own needs and desires." },
-    { icon: <ShieldCheck className="w-5 h-5" />, title: "Embrace agency over your pleasure", desc: "Learn skills to notice and express your desires and limits." },
+    { icon: <ShieldCheck className="w-5 h-5" />, title: "Develop agency over your pleasure", desc: "Learn skills to notice and express your desires and limits." },
     { icon: <HeartHandshake className="w-5 h-5" />, title: "Release shame and guilt", desc: "Discover freedom from societal conditioning and past experiences that may have created shame or guilt around pleasure." },
     { icon: <Sparkles className="w-5 h-5" />, title: "Heal with a trauma-aware approach", desc: "Receive support in a safe and understanding environment that acknowledges and respects the uniqueness of your path." },
   ];
@@ -29,9 +29,9 @@ export const Overview: React.FC = () => {
               />
             </div>
             <div>
-              <h2 className="text-3xl md:text-4xl font-serif text-stone-900 mb-6">Tantric Massage</h2>
+              <h2 className="text-3xl md:text-4xl font-serif text-stone-900 mb-6">Pleasure-Based Bodywork</h2>
               <p className="text-stone-600 leading-relaxed">
-                <strong className="text-sage-600">A sensual, therapeutic bodywork practice of worship, offered in service to honouring your whole being. Inviting you to experience deep relaxation, grounding, joy, arousal, pleasure and beyond.</strong>
+                <strong className="text-sage-600">A sensual, tantric-inspired practice of worship, offered in service to honouring your whole being. Inviting you to experience deep relaxation, grounding, joy, arousal, climax and beyond.</strong>
               </p>
             </div>
 

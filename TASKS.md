@@ -61,3 +61,8 @@ Claude will read this file and update it as work is completed. You can also edit
 - [x] Airtable response caching via Netlify Blobs — 24hr TTL, demand-driven refresh
   - Merged to main and live 2026-08-15; provided free of charge (note as $0 / goodwill on invoice)
   - Blank-pricing filter from the gallery branch ported into sync-site-data.mjs
+- [x] Scheduled daily Airtable sync + never cache a failed fetch (client email, fixed 2026-09-07)
+  - `sync-site-data.mjs` runs daily 15:00 UTC (3am NZST / 4am NZDT) and rewrites the snapshot only if all
+    three Airtable requests succeed; `get-site-data.mjs` serves the last good snapshot if Airtable fails
+  - Demand refresh is now only a safety net (36h stale window) behind the schedule
+  - Manual refresh if ever needed: `netlify blobs:delete site-data content` (next visitor rebuilds it)

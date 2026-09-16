@@ -61,7 +61,7 @@ export const Services: React.FC = () => {
             </div>
           </div>
           <h3 className="text-2xl font-serif text-stone-800 mb-3">A Note on Safety</h3>
-          <p className="text-stone-600 mb-8 max-w-xl mx-auto">As a commitment to your physical and emotional well{"\u2011"}being {"\u2013"} and my own {"\u2013"} safety, care, and respect are part of every interaction.</p>
+          <p className="text-stone-600 mb-8 max-w-xl mx-auto">As a commitment to your physical and emotional well{"\u2011"}being - and my own - safety, care, and respect are part of every interaction.</p>
           <div className="grid sm:grid-cols-3 gap-6 text-left max-w-3xl mx-auto">
             <div className="flex gap-3 items-start">
               <Lock className="w-5 h-5 text-sage-500 mt-0.5 flex-shrink-0" />

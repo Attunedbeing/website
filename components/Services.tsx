@@ -23,8 +23,7 @@ export const Services: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-12 mb-20">
           {/* Offered */}
           <div>
-            <h3 className="text-2xl font-serif text-stone-800 mb-6 flex items-center gap-3">
-              <span className="w-8 h-0.5 bg-sage-500"></span>
+            <h3 className="text-2xl font-serif text-stone-800 mb-6">
               I am available for:
             </h3>
             <ul className="space-y-4">

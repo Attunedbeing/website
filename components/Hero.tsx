@@ -27,6 +27,9 @@ export const Hero: React.FC = () => {
         <span className="block text-stone-200 tracking-[0.3em] text-sm md:text-base uppercase mb-4 font-medium">
           Based in Ōtepoti, Dunedin
         </span>
+        <p className="italic text-sage-200 text-sm md:text-base mb-6">
+          I'll be offline from Sunday 20th September, returning 4th October.
+        </p>
         <p className="text-lg md:text-xl text-stone-200 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
           Sensual, therapeutic bodywork for all bodies and genders, based in Ōtepoti Dunedin. A trauma-aware practice of worship and devotion - supporting nervous system regulation, embodiment, and a deeper relationship with pleasure and self.
         </p>

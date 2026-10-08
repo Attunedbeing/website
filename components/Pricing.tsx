@@ -1,8 +1,8 @@
 import React from 'react';
-import { packageLabel, useSiteData } from './SiteDataContext';
+import { BOOKING_URL, useSiteData } from './SiteDataContext';
 
 export const Pricing: React.FC = () => {
-  const { packages, loading, setInterest } = useSiteData();
+  const { packages, loading } = useSiteData();
 
   if (loading) {
     return (
@@ -63,11 +63,11 @@ export const Pricing: React.FC = () => {
                     Not available
                   </a>
                 ) : (
-                  <a href="#contact" onClick={() => setInterest(packageLabel(pkg))} className={`block w-full text-center py-3 uppercase tracking-widest text-xs transition-colors ${pkg.featured
+                  <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className={`block w-full text-center py-3 uppercase tracking-widest text-xs transition-colors ${pkg.featured
                     ? 'bg-sage-500 text-white hover:bg-sage-400'
                     : 'border border-stone-600 text-stone-300 hover:border-sage-500 hover:text-white'
                     }`}>
-                    Book This Ritual
+                    Availability &amp; Bookings
                   </a>
                 )}
               </div>

@@ -50,7 +50,9 @@ export const FALLBACK_TESTIMONIALS: Testimonial[] = [
 
 export const GENERAL_ENQUIRY = 'General Enquiry';
 
-/** Label used both for the contact form options and the Book buttons. */
+export const BOOKING_URL = 'https://attunedbeing.simplybook.net/v2/';
+
+/** Label used for the contact form options. */
 export const packageLabel = (pkg: PricingPackage) => pkg.name;
 
 interface SiteData {

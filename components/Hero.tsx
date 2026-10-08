@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowDown } from 'lucide-react';
+import { BOOKING_URL } from './SiteDataContext';
 
 export const Hero: React.FC = () => {
   return (
@@ -38,17 +39,21 @@ export const Hero: React.FC = () => {
             Session Options
           </a>
           <a
-            href="#overview"
+            href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-transparent hover:bg-white/10 text-white px-8 py-3 uppercase tracking-widest text-sm transition-all duration-300 border border-white"
           >
-            Learn More
+            Book Here
           </a>
         </div>
       </div>
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
-        <a href="#overview" aria-label="Scroll down">
+        <a href={BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer" aria-label="Scroll down">
           <ArrowDown className="text-white/70 w-6 h-6" />
         </a>
       </div>
